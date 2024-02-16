@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/ -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<!-- Jetpack Site Verification Tags -->
+<meta name="google-site-verification" content="YX6tSGKaTXvTxyTPwg0ufKpYPgmVXpGnr2hVaICII50">
+<meta name="msvalidate.01" content="2633057DB01A917911F59FDC6320756B">
+
+	<!-- This site is optimized with the Yoast SEO plugin v22.0 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Audio Processing with Python | Thecleverprogrammer</title>
+	<meta name="description" content="Some of the most used audio processing tasks in programming include - loading and saving audio files, splitting and appending the audio files into segments,">
+	<link rel="canonical" href="https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Audio Processing with Python | Thecleverprogrammer">
+	<meta property="og:description" content="Some of the most used audio processing tasks in programming include - loading and saving audio files, splitting and appending the audio files into segments,">
+	<meta property="og:url" content="https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/">
+	<meta property="og:site_name" content="thecleverprogrammer">
+	<meta property="article:published_time" content="2020-07-22T12:05:39+00:00">
+	<meta property="article:modified_time" content="2022-04-11T10:41:53+00:00">
+	<meta property="og:image" content="https://thecleverprogrammer.com/wp-content/uploads/2020/07/un-117.png">
+	<meta property="og:image:width" content="1280">
+	<meta property="og:image:height" content="720">
+	<meta property="og:image:type" content="image/png">
+	<meta name="author" content="Thecleverprogrammer">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@amankk_9">
+	<meta name="twitter:label1" content="Written by">
+	<meta name="twitter:data1" content="Thecleverprogrammer">
+	<meta name="twitter:label2" content="Est. reading time">
+	<meta name="twitter:data2" content="3 minutes">
+	<script src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/f(8).txt"></script><script src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/f(9).txt"></script><script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/#article","isPartOf":{"@id":"https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/"},"author":{"name":"Thecleverprogrammer","@id":"https://thecleverprogrammer.com/#/schema/person/7039e850d473df22c3fac4491e10f632"},"headline":"Audio Processing with Python","datePublished":"2020-07-22T12:05:39+00:00","dateModified":"2022-04-11T10:41:53+00:00","mainEntityOfPage":{"@id":"https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/"},"wordCount":387,"commentCount":0,"publisher":{"@id":"https://thecleverprogrammer.com/#/schema/person/846474f6a64a2bcf3beec256fb22260b"},"image":{"@id":"https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/#primaryimage"},"thumbnailUrl":"https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-117.png?fit=1280%2C720&ssl=1","keywords":["audio processing","programming","Python"],"articleSection":["Machine Learning"],"inLanguage":"en-US","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/#respond"]}]},{"@type":"WebPage","@id":"https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/","url":"https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/","name":"Audio Processing with Python | Thecleverprogrammer","isPartOf":{"@id":"https://thecleverprogrammer.com/#website"},"primaryImageOfPage":{"@id":"https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/#primaryimage"},"image":{"@id":"https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/#primaryimage"},"thumbnailUrl":"https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-117.png?fit=1280%2C720&ssl=1","datePublished":"2020-07-22T12:05:39+00:00","dateModified":"2022-04-11T10:41:53+00:00","description":"Some of the most used audio processing tasks in programming include - loading and saving audio files, splitting and appending the audio files into segments,","breadcrumb":{"@id":"https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/#primaryimage","url":"https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-117.png?fit=1280%2C720&ssl=1","contentUrl":"https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-117.png?fit=1280%2C720&ssl=1","width":1280,"height":720,"caption":"Audio Processing with Python"},{"@type":"BreadcrumbList","@id":"https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://thecleverprogrammer.com/"},{"@type":"ListItem","position":2,"name":"All Articles","item":"https://thecleverprogrammer.com/machine-learning/"},{"@type":"ListItem","position":3,"name":"Audio Processing with Python"}]},{"@type":"WebSite","@id":"https://thecleverprogrammer.com/#website","url":"https://thecleverprogrammer.com/","name":"thecleverprogrammer","description":"Learn Python, C++, Coding, Machine Learning, Data Science, Artificial Intelligence and JavaScript.","publisher":{"@id":"https://thecleverprogrammer.com/#/schema/person/846474f6a64a2bcf3beec256fb22260b"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://thecleverprogrammer.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":["Person","Organization"],"@id":"https://thecleverprogrammer.com/#/schema/person/846474f6a64a2bcf3beec256fb22260b","name":"Aman Kharwal","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://thecleverprogrammer.com/#/schema/person/image/","url":"https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2021/04/aman-removebg.png?fit=658%2C545&ssl=1","contentUrl":"https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2021/04/aman-removebg.png?fit=658%2C545&ssl=1","width":658,"height":545,"caption":"Aman Kharwal"},"logo":{"@id":"https://thecleverprogrammer.com/#/schema/person/image/"},"description":"I'm a writer and data scientist on a mission to educate others about the incredible power of data📈.","sameAs":["http://Thecleverprogrammer.com","https://www.instagram.com/amankharwal.official/","https://twitter.com/amankk_9"]},{"@type":"Person","@id":"https://thecleverprogrammer.com/#/schema/person/7039e850d473df22c3fac4491e10f632","name":"Thecleverprogrammer","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://thecleverprogrammer.com/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/f372d21ac593275230da0895419a3805?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/f372d21ac593275230da0895419a3805?s=96&d=mm&r=g","caption":"Thecleverprogrammer"},"sameAs":["http://Thecleverprogrammer.com/"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="https://secure.gravatar.com/">
+<link rel="dns-prefetch" href="https://stats.wp.com/">
+<link rel="dns-prefetch" href="https://widgets.wp.com/">
+<link rel="dns-prefetch" href="https://jetpack.wordpress.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://public-api.wordpress.com/">
+<link rel="dns-prefetch" href="https://0.gravatar.com/">
+<link rel="dns-prefetch" href="https://1.gravatar.com/">
+<link rel="dns-prefetch" href="https://2.gravatar.com/">
+<link rel="dns-prefetch" href="https://i0.wp.com/">
+<link rel="dns-prefetch" href="https://c0.wp.com/">
+<link rel="alternate" type="application/rss+xml" title="thecleverprogrammer » Feed" href="https://thecleverprogrammer.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="thecleverprogrammer » Comments Feed" href="https://thecleverprogrammer.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="thecleverprogrammer » Audio Processing with Python Comments Feed" href="https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/feed/">
+<link rel="stylesheet" id="all-css-45a547eb2fe345f01c2a423c38b3f952" href="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/saved_resource(3)" type="text/css" media="all">
+<style id="wp-block-library-inline-css">
+.has-text-align-justify{text-align:justify;}
+</style>
+<style id="jetpack-sharing-buttons-style-inline-css">
+.jetpack-sharing-buttons__services-list{display:flex;flex-direction:row;flex-wrap:wrap;gap:0;list-style-type:none;margin:5px;padding:0}.jetpack-sharing-buttons__services-list.has-small-icon-size{font-size:12px}.jetpack-sharing-buttons__services-list.has-normal-icon-size{font-size:16px}.jetpack-sharing-buttons__services-list.has-large-icon-size{font-size:24px}.jetpack-sharing-buttons__services-list.has-huge-icon-size{font-size:36px}@media print{.jetpack-sharing-buttons__services-list{display:none!important}}.editor-styles-wrapper .wp-block-jetpack-sharing-buttons{gap:0;padding-inline-start:0}ul.jetpack-sharing-buttons__services-list.has-background{padding:1.25em 2.375em}
+</style>
+<style id="global-styles-inline-css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--palette-color-1: var(--theme-palette-color-1, #2872fa);--wp--preset--color--palette-color-2: var(--theme-palette-color-2, #1559ed);--wp--preset--color--palette-color-3: var(--theme-palette-color-3, rgba(36,59,86,0.9));--wp--preset--color--palette-color-4: var(--theme-palette-color-4, rgba(36,59,86,1));--wp--preset--color--palette-color-5: var(--theme-palette-color-5, #ffffff);--wp--preset--color--palette-color-6: var(--theme-palette-color-6, #f2f5f7);--wp--preset--color--palette-color-7: var(--theme-palette-color-7, #FAFBFC);--wp--preset--color--palette-color-8: var(--theme-palette-color-8, #ffffff);--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--gradient--juicy-peach: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);--wp--preset--gradient--young-passion: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);--wp--preset--gradient--true-sunset: linear-gradient(to right, #fa709a 0%, #fee140 100%);--wp--preset--gradient--morpheus-den: linear-gradient(to top, #30cfd0 0%, #330867 100%);--wp--preset--gradient--plum-plate: linear-gradient(135deg, #667eea 0%, #764ba2 100%);--wp--preset--gradient--aqua-splash: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);--wp--preset--gradient--love-kiss: linear-gradient(to top, #ff0844 0%, #ffb199 100%);--wp--preset--gradient--new-retrowave: linear-gradient(to top, #3b41c5 0%, #a981bb 49%, #ffc8a9 100%);--wp--preset--gradient--plum-bath: linear-gradient(to top, #cc208e 0%, #6713d2 100%);--wp--preset--gradient--high-flight: linear-gradient(to right, #0acffe 0%, #495aff 100%);--wp--preset--gradient--teen-party: linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%);--wp--preset--gradient--fabled-sunset: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);--wp--preset--gradient--arielle-smile: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);--wp--preset--gradient--itmeo-branding: linear-gradient(180deg, #2af598 0%, #009efd 100%);--wp--preset--gradient--deep-blue: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);--wp--preset--gradient--strong-bliss: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);--wp--preset--gradient--sweet-period: linear-gradient(to top, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);--wp--preset--gradient--purple-division: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);--wp--preset--gradient--cold-evening: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);--wp--preset--gradient--mountain-rock: linear-gradient(to right, #868f96 0%, #596164 100%);--wp--preset--gradient--desert-hump: linear-gradient(to top, #c79081 0%, #dfa579 100%);--wp--preset--gradient--ethernal-constance: linear-gradient(to top, #09203f 0%, #537895 100%);--wp--preset--gradient--happy-memories: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);--wp--preset--gradient--grown-early: linear-gradient(to top, #0ba360 0%, #3cba92 100%);--wp--preset--gradient--morning-salad: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);--wp--preset--gradient--night-call: linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%);--wp--preset--gradient--mind-crawl: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);--wp--preset--gradient--angel-care: linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);--wp--preset--gradient--juicy-cake: linear-gradient(to top, #e14fad 0%, #f9d423 100%);--wp--preset--gradient--rich-metal: linear-gradient(to right, #d7d2cc 0%, #304352 100%);--wp--preset--gradient--mole-hall: linear-gradient(-20deg, #616161 0%, #9bc5c3 100%);--wp--preset--gradient--cloudy-knoxville: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);--wp--preset--gradient--soft-grass: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);--wp--preset--gradient--saint-petersburg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);--wp--preset--gradient--everlasting-sky: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);--wp--preset--gradient--kind-steel: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);--wp--preset--gradient--over-sun: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);--wp--preset--gradient--premium-white: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);--wp--preset--gradient--clean-mirror: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);--wp--preset--gradient--wild-apple: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);--wp--preset--gradient--snow-again: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);--wp--preset--gradient--confident-cloud: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);--wp--preset--gradient--glass-water: linear-gradient(to top, #dfe9f3 0%, white 100%);--wp--preset--gradient--perfect-white: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: clamp(22px, 1.375rem + ((1vw - 3.2px) * 0.625), 30px);--wp--preset--font-size--x-large: clamp(30px, 1.875rem + ((1vw - 3.2px) * 1.563), 50px);--wp--preset--font-size--xx-large: clamp(45px, 2.813rem + ((1vw - 3.2px) * 2.734), 80px);--wp--preset--font-family--albert-sans: 'Albert Sans', sans-serif;--wp--preset--font-family--alegreya: Alegreya, serif;--wp--preset--font-family--arvo: Arvo, serif;--wp--preset--font-family--bodoni-moda: 'Bodoni Moda', serif;--wp--preset--font-family--cabin: Cabin, sans-serif;--wp--preset--font-family--chivo: Chivo, sans-serif;--wp--preset--font-family--commissioner: Commissioner, sans-serif;--wp--preset--font-family--cormorant: Cormorant, serif;--wp--preset--font-family--courier-prime: 'Courier Prime', monospace;--wp--preset--font-family--crimson-pro: 'Crimson Pro', serif;--wp--preset--font-family--dm-mono: 'DM Mono', monospace;--wp--preset--font-family--dm-sans: 'DM Sans', sans-serif;--wp--preset--font-family--domine: Domine, serif;--wp--preset--font-family--eb-garamond: 'EB Garamond', serif;--wp--preset--font-family--epilogue: Epilogue, sans-serif;--wp--preset--font-family--figtree: Figtree, sans-serif;--wp--preset--font-family--fira-sans: 'Fira Sans', sans-serif;--wp--preset--font-family--fraunces: Fraunces, serif;--wp--preset--font-family--ibm-plex-mono: 'IBM Plex Mono', monospace;--wp--preset--font-family--ibm-plex-sans: 'IBM Plex Sans', sans-serif;--wp--preset--font-family--inter: Inter, sans-serif;--wp--preset--font-family--josefin-sans: 'Josefin Sans', sans-serif;--wp--preset--font-family--jost: Jost, sans-serif;--wp--preset--font-family--libre-baskerville: 'Libre Baskerville', serif;--wp--preset--font-family--libre-franklin: 'Libre Franklin', sans-serif;--wp--preset--font-family--literata: Literata, serif;--wp--preset--font-family--lora: Lora, serif;--wp--preset--font-family--merriweather: Merriweather, serif;--wp--preset--font-family--montserrat: Montserrat, sans-serif;--wp--preset--font-family--newsreader: Newsreader, serif;--wp--preset--font-family--nunito: Nunito, sans-serif;--wp--preset--font-family--open-sans: 'Open Sans', sans-serif;--wp--preset--font-family--overpass: Overpass, sans-serif;--wp--preset--font-family--petrona: Petrona, serif;--wp--preset--font-family--piazzolla: Piazzolla, serif;--wp--preset--font-family--playfair-display: 'Playfair Display', serif;--wp--preset--font-family--plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;--wp--preset--font-family--poppins: Poppins, sans-serif;--wp--preset--font-family--raleway: Raleway, sans-serif;--wp--preset--font-family--roboto: Roboto, sans-serif;--wp--preset--font-family--roboto-slab: 'Roboto Slab', serif;--wp--preset--font-family--rubik: Rubik, sans-serif;--wp--preset--font-family--sora: Sora, sans-serif;--wp--preset--font-family--source-sans-3: 'Source Sans 3', sans-serif;--wp--preset--font-family--source-serif-4: 'Source Serif 4', serif;--wp--preset--font-family--space-mono: 'Space Mono', monospace;--wp--preset--font-family--texturina: Texturina, serif;--wp--preset--font-family--work-sans: 'Work Sans', sans-serif;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}body { margin: 0;--wp--style--global--content-size: var(--theme-block-max-width);--wp--style--global--wide-size: var(--theme-block-wide-max-width); }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: var(--theme-content-spacing); margin-block-end: 0; }:where(.wp-site-blocks) > :first-child:first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child:last-child { margin-block-end: 0; }body { --wp--style--block-gap: var(--theme-content-spacing); }:where(body .is-layout-flow)  > :first-child:first-child{margin-block-start: 0;}:where(body .is-layout-flow)  > :last-child:last-child{margin-block-end: 0;}:where(body .is-layout-flow)  > *{margin-block-start: var(--theme-content-spacing);margin-block-end: 0;}:where(body .is-layout-constrained)  > :first-child:first-child{margin-block-start: 0;}:where(body .is-layout-constrained)  > :last-child:last-child{margin-block-end: 0;}:where(body .is-layout-constrained)  > *{margin-block-start: var(--theme-content-spacing);margin-block-end: 0;}:where(body .is-layout-flex) {gap: var(--theme-content-spacing);}:where(body .is-layout-grid) {gap: var(--theme-content-spacing);}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-palette-color-1-color{color: var(--wp--preset--color--palette-color-1) !important;}.has-palette-color-2-color{color: var(--wp--preset--color--palette-color-2) !important;}.has-palette-color-3-color{color: var(--wp--preset--color--palette-color-3) !important;}.has-palette-color-4-color{color: var(--wp--preset--color--palette-color-4) !important;}.has-palette-color-5-color{color: var(--wp--preset--color--palette-color-5) !important;}.has-palette-color-6-color{color: var(--wp--preset--color--palette-color-6) !important;}.has-palette-color-7-color{color: var(--wp--preset--color--palette-color-7) !important;}.has-palette-color-8-color{color: var(--wp--preset--color--palette-color-8) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-palette-color-1-background-color{background-color: var(--wp--preset--color--palette-color-1) !important;}.has-palette-color-2-background-color{background-color: var(--wp--preset--color--palette-color-2) !important;}.has-palette-color-3-background-color{background-color: var(--wp--preset--color--palette-color-3) !important;}.has-palette-color-4-background-color{background-color: var(--wp--preset--color--palette-color-4) !important;}.has-palette-color-5-background-color{background-color: var(--wp--preset--color--palette-color-5) !important;}.has-palette-color-6-background-color{background-color: var(--wp--preset--color--palette-color-6) !important;}.has-palette-color-7-background-color{background-color: var(--wp--preset--color--palette-color-7) !important;}.has-palette-color-8-background-color{background-color: var(--wp--preset--color--palette-color-8) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-palette-color-1-border-color{border-color: var(--wp--preset--color--palette-color-1) !important;}.has-palette-color-2-border-color{border-color: var(--wp--preset--color--palette-color-2) !important;}.has-palette-color-3-border-color{border-color: var(--wp--preset--color--palette-color-3) !important;}.has-palette-color-4-border-color{border-color: var(--wp--preset--color--palette-color-4) !important;}.has-palette-color-5-border-color{border-color: var(--wp--preset--color--palette-color-5) !important;}.has-palette-color-6-border-color{border-color: var(--wp--preset--color--palette-color-6) !important;}.has-palette-color-7-border-color{border-color: var(--wp--preset--color--palette-color-7) !important;}.has-palette-color-8-border-color{border-color: var(--wp--preset--color--palette-color-8) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-juicy-peach-gradient-background{background: var(--wp--preset--gradient--juicy-peach) !important;}.has-young-passion-gradient-background{background: var(--wp--preset--gradient--young-passion) !important;}.has-true-sunset-gradient-background{background: var(--wp--preset--gradient--true-sunset) !important;}.has-morpheus-den-gradient-background{background: var(--wp--preset--gradient--morpheus-den) !important;}.has-plum-plate-gradient-background{background: var(--wp--preset--gradient--plum-plate) !important;}.has-aqua-splash-gradient-background{background: var(--wp--preset--gradient--aqua-splash) !important;}.has-love-kiss-gradient-background{background: var(--wp--preset--gradient--love-kiss) !important;}.has-new-retrowave-gradient-background{background: var(--wp--preset--gradient--new-retrowave) !important;}.has-plum-bath-gradient-background{background: var(--wp--preset--gradient--plum-bath) !important;}.has-high-flight-gradient-background{background: var(--wp--preset--gradient--high-flight) !important;}.has-teen-party-gradient-background{background: var(--wp--preset--gradient--teen-party) !important;}.has-fabled-sunset-gradient-background{background: var(--wp--preset--gradient--fabled-sunset) !important;}.has-arielle-smile-gradient-background{background: var(--wp--preset--gradient--arielle-smile) !important;}.has-itmeo-branding-gradient-background{background: var(--wp--preset--gradient--itmeo-branding) !important;}.has-deep-blue-gradient-background{background: var(--wp--preset--gradient--deep-blue) !important;}.has-strong-bliss-gradient-background{background: var(--wp--preset--gradient--strong-bliss) !important;}.has-sweet-period-gradient-background{background: var(--wp--preset--gradient--sweet-period) !important;}.has-purple-division-gradient-background{background: var(--wp--preset--gradient--purple-division) !important;}.has-cold-evening-gradient-background{background: var(--wp--preset--gradient--cold-evening) !important;}.has-mountain-rock-gradient-background{background: var(--wp--preset--gradient--mountain-rock) !important;}.has-desert-hump-gradient-background{background: var(--wp--preset--gradient--desert-hump) !important;}.has-ethernal-constance-gradient-background{background: var(--wp--preset--gradient--ethernal-constance) !important;}.has-happy-memories-gradient-background{background: var(--wp--preset--gradient--happy-memories) !important;}.has-grown-early-gradient-background{background: var(--wp--preset--gradient--grown-early) !important;}.has-morning-salad-gradient-background{background: var(--wp--preset--gradient--morning-salad) !important;}.has-night-call-gradient-background{background: var(--wp--preset--gradient--night-call) !important;}.has-mind-crawl-gradient-background{background: var(--wp--preset--gradient--mind-crawl) !important;}.has-angel-care-gradient-background{background: var(--wp--preset--gradient--angel-care) !important;}.has-juicy-cake-gradient-background{background: var(--wp--preset--gradient--juicy-cake) !important;}.has-rich-metal-gradient-background{background: var(--wp--preset--gradient--rich-metal) !important;}.has-mole-hall-gradient-background{background: var(--wp--preset--gradient--mole-hall) !important;}.has-cloudy-knoxville-gradient-background{background: var(--wp--preset--gradient--cloudy-knoxville) !important;}.has-soft-grass-gradient-background{background: var(--wp--preset--gradient--soft-grass) !important;}.has-saint-petersburg-gradient-background{background: var(--wp--preset--gradient--saint-petersburg) !important;}.has-everlasting-sky-gradient-background{background: var(--wp--preset--gradient--everlasting-sky) !important;}.has-kind-steel-gradient-background{background: var(--wp--preset--gradient--kind-steel) !important;}.has-over-sun-gradient-background{background: var(--wp--preset--gradient--over-sun) !important;}.has-premium-white-gradient-background{background: var(--wp--preset--gradient--premium-white) !important;}.has-clean-mirror-gradient-background{background: var(--wp--preset--gradient--clean-mirror) !important;}.has-wild-apple-gradient-background{background: var(--wp--preset--gradient--wild-apple) !important;}.has-snow-again-gradient-background{background: var(--wp--preset--gradient--snow-again) !important;}.has-confident-cloud-gradient-background{background: var(--wp--preset--gradient--confident-cloud) !important;}.has-glass-water-gradient-background{background: var(--wp--preset--gradient--glass-water) !important;}.has-perfect-white-gradient-background{background: var(--wp--preset--gradient--perfect-white) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-xx-large-font-size{font-size: var(--wp--preset--font-size--xx-large) !important;}.has-albert-sans-font-family{font-family: var(--wp--preset--font-family--albert-sans) !important;}.has-alegreya-font-family{font-family: var(--wp--preset--font-family--alegreya) !important;}.has-arvo-font-family{font-family: var(--wp--preset--font-family--arvo) !important;}.has-bodoni-moda-font-family{font-family: var(--wp--preset--font-family--bodoni-moda) !important;}.has-cabin-font-family{font-family: var(--wp--preset--font-family--cabin) !important;}.has-chivo-font-family{font-family: var(--wp--preset--font-family--chivo) !important;}.has-commissioner-font-family{font-family: var(--wp--preset--font-family--commissioner) !important;}.has-cormorant-font-family{font-family: var(--wp--preset--font-family--cormorant) !important;}.has-courier-prime-font-family{font-family: var(--wp--preset--font-family--courier-prime) !important;}.has-crimson-pro-font-family{font-family: var(--wp--preset--font-family--crimson-pro) !important;}.has-dm-mono-font-family{font-family: var(--wp--preset--font-family--dm-mono) !important;}.has-dm-sans-font-family{font-family: var(--wp--preset--font-family--dm-sans) !important;}.has-domine-font-family{font-family: var(--wp--preset--font-family--domine) !important;}.has-eb-garamond-font-family{font-family: var(--wp--preset--font-family--eb-garamond) !important;}.has-epilogue-font-family{font-family: var(--wp--preset--font-family--epilogue) !important;}.has-figtree-font-family{font-family: var(--wp--preset--font-family--figtree) !important;}.has-fira-sans-font-family{font-family: var(--wp--preset--font-family--fira-sans) !important;}.has-fraunces-font-family{font-family: var(--wp--preset--font-family--fraunces) !important;}.has-ibm-plex-mono-font-family{font-family: var(--wp--preset--font-family--ibm-plex-mono) !important;}.has-ibm-plex-sans-font-family{font-family: var(--wp--preset--font-family--ibm-plex-sans) !important;}.has-inter-font-family{font-family: var(--wp--preset--font-family--inter) !important;}.has-josefin-sans-font-family{font-family: var(--wp--preset--font-family--josefin-sans) !important;}.has-jost-font-family{font-family: var(--wp--preset--font-family--jost) !important;}.has-libre-baskerville-font-family{font-family: var(--wp--preset--font-family--libre-baskerville) !important;}.has-libre-franklin-font-family{font-family: var(--wp--preset--font-family--libre-franklin) !important;}.has-literata-font-family{font-family: var(--wp--preset--font-family--literata) !important;}.has-lora-font-family{font-family: var(--wp--preset--font-family--lora) !important;}.has-merriweather-font-family{font-family: var(--wp--preset--font-family--merriweather) !important;}.has-montserrat-font-family{font-family: var(--wp--preset--font-family--montserrat) !important;}.has-newsreader-font-family{font-family: var(--wp--preset--font-family--newsreader) !important;}.has-nunito-font-family{font-family: var(--wp--preset--font-family--nunito) !important;}.has-open-sans-font-family{font-family: var(--wp--preset--font-family--open-sans) !important;}.has-overpass-font-family{font-family: var(--wp--preset--font-family--overpass) !important;}.has-petrona-font-family{font-family: var(--wp--preset--font-family--petrona) !important;}.has-piazzolla-font-family{font-family: var(--wp--preset--font-family--piazzolla) !important;}.has-playfair-display-font-family{font-family: var(--wp--preset--font-family--playfair-display) !important;}.has-plus-jakarta-sans-font-family{font-family: var(--wp--preset--font-family--plus-jakarta-sans) !important;}.has-poppins-font-family{font-family: var(--wp--preset--font-family--poppins) !important;}.has-raleway-font-family{font-family: var(--wp--preset--font-family--raleway) !important;}.has-roboto-font-family{font-family: var(--wp--preset--font-family--roboto) !important;}.has-roboto-slab-font-family{font-family: var(--wp--preset--font-family--roboto-slab) !important;}.has-rubik-font-family{font-family: var(--wp--preset--font-family--rubik) !important;}.has-sora-font-family{font-family: var(--wp--preset--font-family--sora) !important;}.has-source-sans-3-font-family{font-family: var(--wp--preset--font-family--source-sans-3) !important;}.has-source-serif-4-font-family{font-family: var(--wp--preset--font-family--source-serif-4) !important;}.has-space-mono-font-family{font-family: var(--wp--preset--font-family--space-mono) !important;}.has-texturina-font-family{font-family: var(--wp--preset--font-family--texturina) !important;}.has-work-sans-font-family{font-family: var(--wp--preset--font-family--work-sans) !important;}
+.wp-block-pullquote{font-size: clamp(0.984em, 0.984rem + ((1vw - 0.2em) * 0.645), 1.5em);line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+</style>
+<link rel="stylesheet" id="fontawesomepublic-css" href="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/all.min.css" media="all">
+<link rel="stylesheet" id="fontawesomepublicv4-css" href="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/v4-shims.min.css" media="all">
+<style id="jetpack-global-styles-frontend-style-inline-css">
+:root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+</style>
+<script id="qubely_local_script-js-extra">
+var qubely_urls = {"plugin":"https:\/\/thecleverprogrammer.com\/wp-content\/plugins\/qubely\/","ajax":"https:\/\/thecleverprogrammer.com\/wp-admin\/admin-ajax.php","nonce":"d4d30528d3","actual_url":"thecleverprogrammer.com"};
+</script>
+<script id="qubely_container_width-js-extra">
+var qubely_container_width = {"sm":"480","md":"690","lg":"1000","xl":"1200"};
+</script>
+<script src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/jquery.min.js.download" id="jquery-core-js"></script>
+<script type="text/javascript" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/saved_resource(4)"></script>
+<link rel="https://api.w.org/" href="https://thecleverprogrammer.com/wp-json/"><link rel="alternate" type="application/json" href="https://thecleverprogrammer.com/wp-json/wp/v2/posts/4070"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://thecleverprogrammer.com/xmlrpc.php?rsd">
+
+<link rel="shortlink" href="https://wp.me/pbUb2D-13E">
+<link rel="alternate" type="application/json+oembed" href="https://thecleverprogrammer.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fthecleverprogrammer.com%2F2020%2F07%2F22%2Faudio-processing-with-python%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://thecleverprogrammer.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fthecleverprogrammer.com%2F2020%2F07%2F22%2Faudio-processing-with-python%2F&amp;format=xml">
+<meta name="generator" content="Site Kit by Google 1.120.0"><script async="" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/f(10).txt" crossorigin="anonymous" data-checked-head="true"></script>                <!-- auto ad code generated with Simple Google Adsense plugin v1.0.11 -->
+                <script async="" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/f(11).txt"></script>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({
+                     google_ad_client: "ca-pub-6306647371633064",
+                     enable_page_level_ads: true
+                });
+                </script>      
+                <!-- / Simple Google Adsense plugin -->	<style>img#wpstats{display:none}</style>
+		<noscript><link rel='stylesheet' href='https://thecleverprogrammer.com/wp-content/themes/blocksy/static/bundle/no-scripts.min.css' type='text/css'></noscript>
+<style id="ct-main-styles-inline-css">[data-header*="type-1"] .ct-header [data-id="logo"] .site-logo-container {--logo-max-height:50px;} [data-header*="type-1"] .ct-header [data-id="logo"] .site-title {--theme-font-weight:700;--theme-font-size:25px;--theme-line-height:1.5;--theme-link-initial-color:var(--theme-palette-color-4);} [data-header*="type-1"] .ct-header [data-id="menu"] > ul > li > a {--theme-font-weight:700;--theme-text-transform:uppercase;--theme-font-size:12px;--theme-line-height:1.3;--theme-link-initial-color:var(--color);} [data-header*="type-1"] .ct-header [data-id="menu"][data-menu*="type-3"] > ul > li > a {--theme-link-hover-color:#ffffff;} [data-header*="type-1"] .ct-header [data-id="menu"] {--menu-indicator-hover-color:var(--theme-palette-color-3);--menu-indicator-active-color:var(--theme-palette-color-3);} [data-header*="type-1"] .ct-header [data-id="menu"] .sub-menu .ct-menu-link {--theme-link-initial-color:#ffffff;--theme-font-weight:500;--theme-font-size:12px;} [data-header*="type-1"] .ct-header [data-id="menu"] .sub-menu {--dropdown-background-color:var(--theme-palette-color-6);--dropdown-divider:1px dashed rgba(255, 255, 255, 0.1);--theme-box-shadow:0px 10px 20px rgba(41, 51, 61, 0.1);--theme-border-radius:0px 0px 2px 2px;} [data-header*="type-1"] .ct-header [data-row*="middle"] {--height:99px;background-color:rgba(255, 255, 255, 0);background-image:none;--theme-border-top:none;--theme-border-bottom:none;--theme-box-shadow:none;} [data-header*="type-1"] .ct-header [data-row*="middle"] > div {--theme-border-top:none;--theme-border-bottom:none;} [data-header*="type-1"] [data-id="mobile-menu"] {--theme-font-weight:700;--theme-font-size:20px;--theme-link-initial-color:#ffffff;--mobile-menu-divider:none;} [data-header*="type-1"] #offcanvas {--theme-box-shadow:0px 0px 70px rgba(0, 0, 0, 0.35);--side-panel-width:500px;} [data-header*="type-1"] #offcanvas .ct-panel-inner {background-color:rgba(18, 21, 25, 0.98);} [data-header*="type-1"] #search-modal .ct-search-results {--theme-font-weight:500;--theme-font-size:14px;--theme-line-height:1.4;} [data-header*="type-1"] #search-modal .ct-search-form {--theme-link-initial-color:#ffffff;--theme-form-text-initial-color:#ffffff;--theme-form-text-focus-color:#ffffff;--theme-form-field-border-initial-color:rgba(255, 255, 255, 0.2);--theme-button-text-initial-color:rgba(255, 255, 255, 0.7);--theme-button-text-hover-color:#ffffff;--theme-button-background-initial-color:var(--theme-palette-color-1);--theme-button-background-hover-color:var(--theme-palette-color-1);} [data-header*="type-1"] #search-modal {background-color:rgba(18, 21, 25, 0.98);} [data-header*="type-1"] [data-id="trigger"] {--theme-icon-size:19px;} [data-header*="type-1"] [data-id="trigger"] .ct-label {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;} [data-header*="type-1"] {--header-height:99px;} [data-header*="type-1"] .ct-header {background-image:none;} [data-footer*="type-1"] .ct-footer [data-row*="bottom"] > div {--container-spacing:25px;--theme-border:none;--grid-template-columns:initial;} [data-footer*="type-1"] .ct-footer [data-row*="bottom"] .widget-title {--theme-font-size:16px;} [data-footer*="type-1"] .ct-footer [data-row*="bottom"] {background-color:transparent;} [data-footer*="type-1"] [data-id="copyright"] {--theme-font-weight:400;--theme-font-size:15px;--theme-line-height:1.3;} [data-footer*="type-1"] [data-id="socials"].ct-footer-socials .ct-label {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;} [data-footer*="type-1"] [data-id="socials"].ct-footer-socials [data-color="custom"] {--background-color:rgba(218, 222, 228, 0.3);--background-hover-color:var(--theme-palette-color-1);} [data-footer*="type-1"] .ct-footer [data-row*="top"] > div {--container-spacing:30px;--theme-border:none;--grid-template-columns:repeat(2, 1fr);} [data-footer*="type-1"] .ct-footer [data-row*="top"] .widget-title {--theme-font-size:16px;} [data-footer*="type-1"] .ct-footer [data-row*="top"] {background-color:transparent;} [data-footer*="type-1"] .ct-footer {background-color:var(--theme-palette-color-6);}:root {--theme-font-family:Arial;--theme-font-weight:400;--theme-text-transform:none;--theme-text-decoration:none;--theme-font-size:22px;--theme-line-height:1.65;--theme-letter-spacing:0em;--theme-button-font-weight:500;--theme-button-font-size:15px;--has-classic-forms:var(--true);--has-modern-forms:var(--false);--theme-form-field-border-initial-color:var(--theme-border-color);--theme-form-field-border-focus-color:var(--theme-palette-color-1);--theme-form-selection-field-initial-color:var(--theme-border-color);--theme-form-selection-field-active-color:var(--theme-palette-color-1);--theme-palette-color-1:#2872fa;--theme-palette-color-2:#1559ed;--theme-palette-color-3:rgba(36,59,86,0.9);--theme-palette-color-4:rgba(36,59,86,1);--theme-palette-color-5:#ffffff;--theme-palette-color-6:#f2f5f7;--theme-palette-color-7:#FAFBFC;--theme-palette-color-8:#ffffff;--theme-text-color:var(--theme-palette-color-3);--theme-link-initial-color:var(--theme-palette-color-1);--theme-link-hover-color:var(--theme-palette-color-4);--theme-selection-text-color:#ffffff;--theme-selection-background-color:var(--theme-palette-color-3);--theme-border-color:var(--theme-palette-color-5);--theme-headings-color:var(--theme-palette-color-4);--theme-content-spacing:1.5em;--theme-button-min-height:40px;--theme-button-text-initial-color:#ffffff;--theme-button-text-hover-color:#ffffff;--theme-button-background-initial-color:var(--theme-palette-color-1);--theme-button-background-hover-color:var(--theme-palette-color-2);--theme-button-border:none;--theme-button-border-radius:3px;--theme-button-padding:5px 20px;--theme-normal-container-max-width:1290px;--theme-content-vertical-spacing:60px;--theme-container-edge-spacing:90vw;--theme-narrow-container-max-width:750px;--theme-wide-offset:130px;}h1 {--theme-font-family:Arial;--theme-font-weight:700;--theme-font-size:40px;--theme-line-height:1.5;}h2 {--theme-font-family:Arial;--theme-font-weight:700;--theme-font-size:35px;--theme-line-height:1.5;}h3 {--theme-font-family:Arial;--theme-font-weight:700;--theme-font-size:30px;--theme-line-height:1.5;}h4 {--theme-font-family:Arial;--theme-font-weight:700;--theme-font-size:25px;--theme-line-height:1.5;}h5 {--theme-font-weight:700;--theme-font-size:20px;--theme-line-height:1.5;}h6 {--theme-font-weight:700;--theme-font-size:16px;--theme-line-height:1.5;}.wp-block-pullquote {--theme-font-family:Arial;--theme-font-weight:600;--theme-font-size:25px;}code, kbd, samp, pre {--theme-font-family:monospace;--theme-font-weight:400;--theme-font-size:16px;}figcaption {--theme-font-size:14px;}.ct-sidebar .widget-title {--theme-font-size:20px;}.ct-breadcrumbs {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;}body {background-color:var(--theme-palette-color-7);background-image:none;} [data-prefix="single_blog_post"] .entry-header .page-title {--theme-font-size:30px;} [data-prefix="single_blog_post"] .entry-header .entry-meta {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;--theme-line-height:1.3;} [data-prefix="single_blog_post"] .hero-section[data-type="type-2"] {--alignment:center;--vertical-alignment:center;--min-height:0px;background-color:var(--theme-palette-color-7);background-image:none;--container-padding:50px 0px;} [data-prefix="single_blog_post"] .hero-section .entry-meta {--itemSpacing:14px;} [data-prefix="blog"] .entry-header .page-title {--theme-font-size:30px;} [data-prefix="blog"] .entry-header .entry-meta {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;--theme-line-height:1.3;} [data-prefix="categories"] .entry-header .page-title {--theme-font-size:30px;} [data-prefix="categories"] .entry-header .entry-meta {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;--theme-line-height:1.3;} [data-prefix="search"] .entry-header .page-title {--theme-font-size:30px;} [data-prefix="search"] .entry-header .entry-meta {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;--theme-line-height:1.3;} [data-prefix="author"] .entry-header .page-title {--theme-font-size:30px;} [data-prefix="author"] .entry-header .entry-meta {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;--theme-line-height:1.3;} [data-prefix="author"] .hero-section[data-type="type-2"] {background-color:var(--theme-palette-color-6);background-image:none;--container-padding:50px 0px;} [data-prefix="single_page"] .entry-header .page-title {--theme-font-size:30px;} [data-prefix="single_page"] .entry-header .entry-meta {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;--theme-line-height:1.3;} [data-prefix="jetpack-portfolio_single"] .entry-header .page-title {--theme-font-size:30px;} [data-prefix="jetpack-portfolio_single"] .entry-header .entry-meta {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;--theme-line-height:1.3;} [data-prefix="jetpack-portfolio_archive"] .entry-header .page-title {--theme-font-size:30px;} [data-prefix="jetpack-portfolio_archive"] .entry-header .entry-meta {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;--theme-line-height:1.3;} [data-prefix="blog"] .entries {--grid-template-columns:repeat(2, minmax(0, 1fr));--grid-columns-gap:41px;} [data-prefix="blog"] .entry-card .entry-title {--theme-font-size:20px;--theme-line-height:1.3;} [data-prefix="blog"] .entry-card .entry-meta {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;--theme-link-hover-color:var(--theme-palette-color-4);} [data-prefix="blog"] .entry-card {--card-inner-spacing:75px;background-color:var(--theme-palette-color-7);--theme-box-shadow:0px 12px 18px -6px rgba(34, 56, 101, 0.04);--text-horizontal-alignment:left;--horizontal-alignment:flex-start;} [data-prefix="blog"] .entry-button {--theme-button-background-initial-color:var(--theme-palette-color-3);--theme-button-background-hover-color:var(--theme-palette-color-4);} [data-prefix="categories"] .entries {--grid-template-columns:repeat(3, minmax(0, 1fr));} [data-prefix="categories"] .entry-card .entry-title {--theme-font-size:20px;--theme-line-height:1.3;} [data-prefix="categories"] .entry-card .entry-meta {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;} [data-prefix="categories"] .entry-card {background-color:var(--theme-palette-color-8);--theme-box-shadow:0px 12px 18px -6px rgba(34, 56, 101, 0.04);} [data-prefix="author"] .entries {--grid-template-columns:repeat(3, minmax(0, 1fr));} [data-prefix="author"] .entry-card .entry-title {--theme-font-size:20px;--theme-line-height:1.3;} [data-prefix="author"] .entry-card .entry-meta {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;} [data-prefix="author"] .entry-card {background-color:var(--theme-palette-color-8);--theme-box-shadow:0px 12px 18px -6px rgba(34, 56, 101, 0.04);} [data-prefix="search"] .entry-card .entry-title {--theme-font-size:20px;--theme-line-height:1.3;} [data-prefix="search"] .entry-card .entry-meta {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;} [data-prefix="search"] .entry-card {background-color:var(--theme-palette-color-8);--theme-box-shadow:0px 12px 18px -6px rgba(34, 56, 101, 0.04);} [data-prefix="jetpack-portfolio_archive"] .entries {--grid-template-columns:repeat(3, minmax(0, 1fr));} [data-prefix="jetpack-portfolio_archive"] .entry-card .entry-title {--theme-font-size:20px;--theme-line-height:1.3;} [data-prefix="jetpack-portfolio_archive"] .entry-card .entry-meta {--theme-font-weight:600;--theme-text-transform:uppercase;--theme-font-size:12px;} [data-prefix="jetpack-portfolio_archive"] .entry-card {background-color:var(--theme-palette-color-8);--theme-box-shadow:0px 12px 18px -6px rgba(34, 56, 101, 0.04);}form textarea {--theme-form-field-height:170px;} [data-sidebar] {--sidebar-width:24%;--sidebar-width-no-unit:24;--sidebar-gap:3%;--sidebar-offset:11px;}.ct-sidebar {--theme-link-initial-color:var(--theme-text-color);--sidebar-widgets-spacing:15px;} [data-sidebar] > aside {--sidebar-background-color:var(--theme-palette-color-8);}.ct-back-to-top {--theme-icon-color:#ffffff;--theme-icon-hover-color:#ffffff;--theme-border-radius:2px;} [data-prefix="single_blog_post"] .ct-share-box[data-location="bottom"] {--margin:47px;} [data-prefix="single_blog_post"] .ct-share-box[data-type="type-1"] {--theme-border:1px solid var(--border-color);} [data-prefix="single_blog_post"] .author-box {--spacing:0px;} [data-prefix="single_blog_post"] .author-box[data-type="type-2"] {--theme-border-color:var(--theme-palette-color-4);} [data-prefix="single_blog_post"] .post-navigation {--theme-link-initial-color:var(--theme-text-color);} [data-prefix="single_blog_post"] .ct-related-posts-container {background-color:var(--theme-palette-color-7);} [data-prefix="single_blog_post"] .ct-related-posts .related-entry-title {--theme-font-size:16px;} [data-prefix="single_blog_post"] .ct-related-posts .entry-meta {--theme-font-size:14px;} [data-prefix="single_blog_post"] .ct-related-posts {--grid-template-columns:repeat(4, 1fr);} [data-prefix="jetpack-portfolio_single"] [class*="ct-container"] > article[class*="post"] {--has-boxed:var(--false);--has-wide:var(--true);} [data-prefix="single_blog_post"] {background-color:var(--theme-palette-color-8);} [data-prefix="single_blog_post"] [class*="ct-container"] > article[class*="post"] {--has-boxed:var(--false);--has-wide:var(--true);} [data-prefix="single_page"] [class*="ct-container"] > article[class*="post"] {--has-boxed:var(--false);--has-wide:var(--true);}@media (max-width: 999.98px) {[data-header*="type-1"] .ct-header [data-row*="middle"] {--height:70px;} [data-header*="type-1"] #offcanvas {--side-panel-width:65vw;} [data-header*="type-1"] {--header-height:70px;} [data-footer*="type-1"] .ct-footer [data-row*="bottom"] > div {--grid-template-columns:initial;} [data-footer*="type-1"] .ct-footer [data-row*="top"] > div {--grid-template-columns:initial;} [data-prefix="categories"] .entries {--grid-template-columns:repeat(2, minmax(0, 1fr));} [data-prefix="author"] .entries {--grid-template-columns:repeat(2, minmax(0, 1fr));} [data-prefix="jetpack-portfolio_archive"] .entries {--grid-template-columns:repeat(2, minmax(0, 1fr));} [data-prefix="single_blog_post"] .ct-related-posts {--grid-template-columns:repeat(2, 1fr);}}@media (max-width: 689.98px) {[data-header*="type-1"] #offcanvas {--side-panel-width:90vw;} [data-footer*="type-1"] .ct-footer [data-row*="bottom"] > div {--container-spacing:15px;--grid-template-columns:initial;} [data-footer*="type-1"] .ct-footer [data-row*="top"] > div {--grid-template-columns:initial;} [data-prefix="blog"] .entries {--grid-template-columns:repeat(1, minmax(0, 1fr));} [data-prefix="blog"] .entry-card .entry-title {--theme-font-size:18px;} [data-prefix="categories"] .entries {--grid-template-columns:repeat(1, minmax(0, 1fr));} [data-prefix="categories"] .entry-card .entry-title {--theme-font-size:18px;} [data-prefix="author"] .entries {--grid-template-columns:repeat(1, minmax(0, 1fr));} [data-prefix="author"] .entry-card .entry-title {--theme-font-size:18px;} [data-prefix="search"] .entry-card .entry-title {--theme-font-size:18px;} [data-prefix="jetpack-portfolio_archive"] .entries {--grid-template-columns:repeat(1, minmax(0, 1fr));} [data-prefix="jetpack-portfolio_archive"] .entry-card .entry-title {--theme-font-size:18px;}:root {--theme-content-vertical-spacing:50px;--theme-container-edge-spacing:88vw;} [data-prefix="single_blog_post"] .ct-related-posts {--grid-template-columns:repeat(1, 1fr);}}</style>
+
+<!-- Google AdSense meta tags added by Site Kit -->
+<meta name="google-adsense-platform-account" content="ca-host-pub-2644536267352236">
+<meta name="google-adsense-platform-domain" content="sitekit.withgoogle.com">
+<!-- End Google AdSense meta tags added by Site Kit -->
+<link rel="icon" href="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/cropped-thecleverprogrkammer.png?fit=32%2C32&amp;ssl=1" sizes="32x32">
+<link rel="icon" href="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/cropped-thecleverprogrkammer.png?fit=192%2C192&amp;ssl=1" sizes="192x192">
+<link rel="apple-touch-icon" href="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/cropped-thecleverprogrkammer.png?fit=180%2C180&amp;ssl=1">
+<meta name="msapplication-TileImage" content="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/cropped-thecleverprogrkammer.png?fit=270%2C270&amp;ssl=1">
+<style type="text/css"></style>		<!-- Jetpack Google Analytics -->
+		<script async="" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/js(1)"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() { dataLayer.push( arguments ); }
+			gtag( 'js', new Date() );
+			gtag( 'config', "G-2LYFYEY53J" );
+					</script>
+		<!-- End Jetpack Google Analytics -->
+			<meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><script async="" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/ca-pub-6306647371633064"></script><script async="" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/AGSKWxUAARkkT-9WQb7yAJp6CgIbBKBJTW3nD-0sLnZQBDtGW2z2_CaBjl_cf0P8wjZDiLFFwTS4Y4kw-i08pwaO9J6aKqODOlFHni0s5J7wP39ph-loud28bB-AxSQd1zHuMavK6ECc4g=="></script><script async="" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/AGSKWxVBvvQws4rvKeHUQwzrxKD9KhzJgGWowMDxArfNarP0EUmLShPTqmAqZ3dkiTm4QAp4KMWDoSHpLq5cX-V7XoF2cXwerXvAmqWYjt76THl7j7mnE-MYOT3yi-sd8n_1Ro82xUOcVQ=="></script><script async="" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/AGSKWxUCcsUAiu76B22CfEDSTxwHM9Y5D_1pMoHirRRabmllpr5GIXvkWWjYWI4eEDPv9eB5EtXD68GzIOQrYvwiXpcZAW9icBY_nkN7I-ZNu6HNPPMh-T06XWfATBYRCXNcj6qEqaqkdQ=="></script></head>
+
+
+<body class="post-template-default single single-post postid-4070 single-format-standard wp-custom-logo wp-embed-responsive qubely qubely-frontend" data-link="type-2" data-prefix="single_blog_post" data-header="type-1" data-footer="type-1" itemscope="itemscope" itemtype="https://schema.org/Blog" aria-hidden="false" style="">
+
+<a class="skip-link show-on-focus" href="https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/#main">
+	Skip to content</a>
+
+<div class="ct-drawer-canvas" data-location="start">
+		<div id="search-modal" class="ct-panel" data-behaviour="modal">
+			<div class="ct-panel-actions">
+				<button class="ct-toggle-close" data-type="type-1" aria-label="Close search modal">
+					<svg class="ct-icon" width="12" height="12" viewBox="0 0 15 15"><path d="M1 15a1 1 0 01-.71-.29 1 1 0 010-1.41l5.8-5.8-5.8-5.8A1 1 0 011.7.29l5.8 5.8 5.8-5.8a1 1 0 011.41 1.41l-5.8 5.8 5.8 5.8a1 1 0 01-1.41 1.41l-5.8-5.8-5.8 5.8A1 1 0 011 15z"></path></svg>				</button>
+			</div>
+
+			<div class="ct-panel-content">
+				
+
+<form role="search" method="get" class="ct-search-form" action="https://thecleverprogrammer.com/" aria-haspopup="listbox" data-live-results="thumbs">
+
+	<input type="search" class="modal-field" placeholder="Search" value="" name="s" autocomplete="off" title="Search for..." aria-label="Search for...">
+
+	<div class="ct-search-form-controls">
+		
+		<button type="submit" class="wp-element-button" data-button="icon" aria-label="Search button">
+			<svg class="ct-icon ct-search-button-content" aria-hidden="true" width="15" height="15" viewBox="0 0 15 15"><path d="M14.8,13.7L12,11c0.9-1.2,1.5-2.6,1.5-4.2c0-3.7-3-6.8-6.8-6.8S0,3,0,6.8s3,6.8,6.8,6.8c1.6,0,3.1-0.6,4.2-1.5l2.8,2.8c0.1,0.1,0.3,0.2,0.5,0.2s0.4-0.1,0.5-0.2C15.1,14.5,15.1,14,14.8,13.7z M1.5,6.8c0-2.9,2.4-5.2,5.2-5.2S12,3.9,12,6.8S9.6,12,6.8,12S1.5,9.6,1.5,6.8z"></path></svg>
+			<span class="ct-ajax-loader">
+				<svg viewBox="0 0 24 24">
+					<circle cx="12" cy="12" r="10" opacity="0.2" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></circle>
+
+					<path d="m12,2c5.52,0,10,4.48,10,10" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2">
+						<animatetransform attributeName="transform" attributeType="XML" type="rotate" dur="0.6s" from="0 12 12" to="360 12 12" repeatCount="indefinite"></animatetransform>
+					</path>
+				</svg>
+			</span>
+		</button>
+
+		
+					<input type="hidden" name="ct_post_type" value="post:page:jetpack-portfolio">
+		
+		<input type="hidden" value="b1800efa94" class="ct-live-results-nonce">	</div>
+
+			<div class="screen-reader-text" aria-live="polite" role="status">
+			No results		</div>
+	
+</form>
+
+
+			</div>
+		</div>
+
+		<div id="offcanvas" class="ct-panel ct-header" data-behaviour="right-side"><div class="ct-panel-inner">
+		<div class="ct-panel-actions">
+			
+			<button class="ct-toggle-close" data-type="type-1" aria-label="Close drawer">
+				<svg class="ct-icon" width="12" height="12" viewBox="0 0 15 15"><path d="M1 15a1 1 0 01-.71-.29 1 1 0 010-1.41l5.8-5.8-5.8-5.8A1 1 0 011.7.29l5.8 5.8 5.8-5.8a1 1 0 011.41 1.41l-5.8 5.8 5.8 5.8a1 1 0 01-1.41 1.41l-5.8-5.8-5.8 5.8A1 1 0 011 15z"></path></svg>
+			</button>
+		</div>
+		<div class="ct-panel-content" data-device="desktop"><div class="ct-panel-content-inner"></div></div><div class="ct-panel-content" data-device="mobile"><div class="ct-panel-content-inner">
+<nav class="mobile-menu" data-id="mobile-menu" data-interaction="click" data-toggle-type="type-1" aria-label="Off Canvas Menu">
+	<ul id="menu-primary-1" role="menubar"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-8468" role="none"><a href="https://thecleverprogrammer.com/" class="ct-menu-link" role="menuitem">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-5638" role="none"><a href="https://thecleverprogrammer.com/machine-learning/" class="ct-menu-link" role="menuitem">All Articles</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19347" role="none"><a href="https://thecleverprogrammer.com/recommended-courses/" class="ct-menu-link" role="menuitem">Recommended Courses</a></li>
+</ul></nav>
+
+</div></div></div></div>
+	<a href="https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/#main-container" class="ct-back-to-top ct-hidden-sm ct-show" data-shape="square" data-alignment="right" title="Go to top" aria-label="Go to top">
+
+		<svg class="ct-icon" width="15" height="15" viewBox="0 0 20 20"><path d="M10,0L9.4,0.6L0.8,9.1l1.2,1.2l7.1-7.1V20h1.7V3.3l7.1,7.1l1.2-1.2l-8.5-8.5L10,0z"></path></svg>	</a>
+
+	</div>
+<div id="main-container" style="height: auto !important; min-height: 0px !important;">
+	<header id="header" class="ct-header" data-id="type-1" itemscope="" itemtype="https://schema.org/WPHeader"><div data-device="desktop"><div data-row="middle" data-column-set="2"><div class="ct-container"><div data-column="start" data-placements="1"><div data-items="primary">
+<div class="site-branding" data-id="logo" itemscope="itemscope" itemtype="https://schema.org/Organization">
+
+			<a href="https://thecleverprogrammer.com/" class="site-logo-container" rel="home" itemprop="url"><img width="1080" height="1080" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/thecleverprogrkammer.png" class="default-logo" alt="thecleverprogrammer" itemprop="logo" decoding="async" fetchpriority="high" srcset="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?w=1080&amp;ssl=1 1080w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=300%2C300&amp;ssl=1 300w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=1024%2C1024&amp;ssl=1 1024w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=150%2C150&amp;ssl=1 150w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=768%2C768&amp;ssl=1 768w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=800%2C800&amp;ssl=1 800w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=400%2C400&amp;ssl=1 400w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=200%2C200&amp;ssl=1 200w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=50%2C50&amp;ssl=1 50w" sizes="(max-width: 1080px) 100vw, 1080px" data-attachment-id="19103" data-permalink="https://thecleverprogrammer.com/thecleverprogrkammer/" data-orig-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?fit=1080%2C1080&amp;ssl=1" data-orig-size="1080,1080" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="thecleverprogrkammer" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?fit=300%2C300&amp;ssl=1" data-large-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?fit=1024%2C1024&amp;ssl=1"></a>	
+	</div>
+
+</div></div><div data-column="end" data-placements="1"><div data-items="primary">
+<nav id="header-menu-1" class="header-menu-1" data-id="menu" data-interaction="hover" data-menu="type-2:default" data-dropdown="type-1:simple" data-responsive="yes" itemscope="" itemtype="https://schema.org/SiteNavigationElement" aria-label="Header Menu">
+
+	<ul id="menu-primary" class="menu" role="menubar"><li id="menu-item-8468" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-8468" role="none"><a href="https://thecleverprogrammer.com/" class="ct-menu-link" role="menuitem">Home</a></li>
+<li id="menu-item-5638" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-5638" role="none"><a href="https://thecleverprogrammer.com/machine-learning/" class="ct-menu-link" role="menuitem">All Articles</a></li>
+<li id="menu-item-19347" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19347" role="none"><a href="https://thecleverprogrammer.com/recommended-courses/" class="ct-menu-link" role="menuitem">Recommended Courses</a></li>
+</ul></nav>
+
+
+<button data-toggle-panel="#search-modal" class="ct-header-search ct-toggle " aria-label="Search" data-label="left" data-id="search">
+
+	<span class="ct-label ct-hidden-sm ct-hidden-md ct-hidden-lg">Search</span>
+
+	<svg class="ct-icon" aria-hidden="true" width="15" height="15" viewBox="0 0 15 15"><path d="M14.8,13.7L12,11c0.9-1.2,1.5-2.6,1.5-4.2c0-3.7-3-6.8-6.8-6.8S0,3,0,6.8s3,6.8,6.8,6.8c1.6,0,3.1-0.6,4.2-1.5l2.8,2.8c0.1,0.1,0.3,0.2,0.5,0.2s0.4-0.1,0.5-0.2C15.1,14.5,15.1,14,14.8,13.7z M1.5,6.8c0-2.9,2.4-5.2,5.2-5.2S12,3.9,12,6.8S9.6,12,6.8,12S1.5,9.6,1.5,6.8z"></path></svg></button>
+</div></div></div></div></div><div data-device="mobile"><div data-row="middle" data-column-set="2"><div class="ct-container"><div data-column="start" data-placements="1"><div data-items="primary">
+<div class="site-branding" data-id="logo">
+
+			<a href="https://thecleverprogrammer.com/" class="site-logo-container" rel="home" itemprop="url"><img width="1080" height="1080" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/thecleverprogrkammer.png" class="default-logo" alt="thecleverprogrammer" itemprop="logo" decoding="async" srcset="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?w=1080&amp;ssl=1 1080w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=300%2C300&amp;ssl=1 300w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=1024%2C1024&amp;ssl=1 1024w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=150%2C150&amp;ssl=1 150w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=768%2C768&amp;ssl=1 768w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=800%2C800&amp;ssl=1 800w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=400%2C400&amp;ssl=1 400w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=200%2C200&amp;ssl=1 200w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?resize=50%2C50&amp;ssl=1 50w" sizes="(max-width: 1080px) 100vw, 1080px" data-attachment-id="19103" data-permalink="https://thecleverprogrammer.com/thecleverprogrkammer/" data-orig-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?fit=1080%2C1080&amp;ssl=1" data-orig-size="1080,1080" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="thecleverprogrkammer" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?fit=300%2C300&amp;ssl=1" data-large-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2022/12/thecleverprogrkammer.png?fit=1024%2C1024&amp;ssl=1"></a>	
+	</div>
+
+</div></div><div data-column="end" data-placements="1"><div data-items="primary">
+<button data-toggle-panel="#offcanvas" class="ct-header-trigger ct-toggle " data-design="simple" data-label="right" aria-label="" data-id="trigger">
+
+	<span class="ct-label "></span>
+
+	<svg class="ct-icon" width="18" height="14" viewBox="0 0 18 14" aria-hidden="true" data-type="type-1">
+
+		<rect y="0.00" width="18" height="1.7" rx="1"></rect>
+		<rect y="6.15" width="18" height="1.7" rx="1"></rect>
+		<rect y="12.3" width="18" height="1.7" rx="1"></rect>
+	</svg>
+</button>
+</div></div></div></div></div></header>
+	<main id="main" class="site-main hfeed" itemscope="itemscope" itemtype="https://schema.org/CreativeWork" style="height: auto !important;">
+
+		
+<div class="hero-section" data-type="type-2">
+	
+			<header class="entry-header ct-container">
+			<h1 class="page-title" title="Audio Processing with Python" itemprop="headline">Audio Processing with Python</h1><ul class="entry-meta" data-type="icons:slash"><li class="meta-author" itemprop="author" itemscope="" itemtype="https://schema.org/Person"><a href="https://thecleverprogrammer.com/author/thecleverprogrammer/" tabindex="-1" class="ct-media-container-static"><img decoding="async" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/f372d21ac593275230da0895419a3805.png" width="25" height="25" style="height:25px" alt="Thecleverprogrammer"></a><svg width="13" height="13" viewBox="0 0 15 15"><path d="M13.6,1.4c-1.9-1.9-4.9-1.9-6.8,0L2.2,6C2.1,6.1,2,6.3,2,6.5V12l-1.8,1.8c-0.3,0.3-0.3,0.7,0,1C0.3,14.9,0.5,15,0.7,15s0.3-0.1,0.5-0.2L3,13h5.5c0.2,0,0.4-0.1,0.5-0.2l2.7-2.7c0,0,0,0,0,0l1.9-1.9C15.5,6.3,15.5,3.3,13.6,1.4z M8.2,11.6H4.4l1.4-1.4h3.9L8.2,11.6z M12.6,7.2L11,8.9H7.1l3.6-3.6c0.3-0.3,0.3-0.7,0-1C10.4,4,10,4,9.7,4.3L5,9.1c0,0,0,0,0,0l-1.6,1.6V6.8l4.4-4.4c1.3-1.3,3.5-1.3,4.8,0C14,3.7,14,5.9,12.6,7.2C12.6,7.2,12.6,7.2,12.6,7.2z"></path></svg><a class="ct-meta-element-author" href="https://thecleverprogrammer.com/author/thecleverprogrammer/" title="Posts by Thecleverprogrammer" rel="author" itemprop="url"><span itemprop="name">Thecleverprogrammer</span></a></li><li class="meta-date" itemprop="datePublished"><svg width="13" height="13" viewBox="0 0 15 15"><path d="M7.5,0C3.4,0,0,3.4,0,7.5S3.4,15,7.5,15S15,11.6,15,7.5S11.6,0,7.5,0z M7.5,13.6c-3.4,0-6.1-2.8-6.1-6.1c0-3.4,2.8-6.1,6.1-6.1c3.4,0,6.1,2.8,6.1,6.1C13.6,10.9,10.9,13.6,7.5,13.6z M10.8,9.2c-0.1,0.2-0.4,0.4-0.6,0.4c-0.1,0-0.2,0-0.3-0.1L7.2,8.1C7,8,6.8,7.8,6.8,7.5V4c0-0.4,0.3-0.7,0.7-0.7S8.2,3.6,8.2,4v3.1l2.4,1.2C10.9,8.4,11,8.8,10.8,9.2z"></path></svg><time class="ct-meta-element-date" datetime="2020-07-22T17:35:39+05:30">July 22, 2020</time></li><li class="meta-categories" data-type="simple"><svg width="13" height="13" viewBox="0 0 15 15"><path d="M14.4,1.2H0.6C0.3,1.2,0,1.5,0,1.9V5c0,0.3,0.3,0.6,0.6,0.6h0.6v7.5c0,0.3,0.3,0.6,0.6,0.6h11.2c0.3,0,0.6-0.3,0.6-0.6V5.6h0.6C14.7,5.6,15,5.3,15,5V1.9C15,1.5,14.7,1.2,14.4,1.2z M12.5,12.5h-10V5.6h10V12.5z M13.8,4.4H1.2V2.5h12.5V4.4z M5.6,7.5c0-0.3,0.3-0.6,0.6-0.6h2.5c0.3,0,0.6,0.3,0.6,0.6S9.1,8.1,8.8,8.1H6.2C5.9,8.1,5.6,7.8,5.6,7.5z"></path></svg><a href="https://thecleverprogrammer.com/category/by-aman-kharwal/" rel="tag" class="ct-term-698378106">Machine Learning</a></li></ul>		</header>
+	</div>
+
+
+
+	<div class="ct-container" data-sidebar="right" data-vertical-spacing="top:bottom" style="height: auto !important;">
+
+		
+		
+	<article id="post-4070" class="post-4070 post type-post status-publish format-standard has-post-thumbnail hentry category-by-aman-kharwal tag-audio-processing tag-programming tag-python" style="height: auto !important;">
+
+		
+		
+		
+		<div class="entry-content" style="height: auto !important;">
+			
+<p>Sometimes, while doing programming, we need to go through some audio processing stuff. Some of the most used audio processing tasks in programming include – loading and saving audio files, splitting and appending the audio files into segments, creating mix audio files using different data, manipulating the levels of sound, applying some filters, and generating audio tuning and maybe more.</p><div class="code-block code-block-2" style="margin: 8px auto; text-align: center; display: block; clear: both;">
+<script async="" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/f(10).txt" crossorigin="anonymous" data-checked-head="true"></script>
+<!-- new ad reps -->
+<ins class="adsbygoogle" style="display: block; height: 280px;" data-ad-client="ca-pub-6306647371633064" data-ad-slot="1883497469" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_1_host" style="border: none; height: 280px; width: 942px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: visible;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_1" name="aswift_1" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:942px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="942" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/ads.html" data-google-container-id="a!2" data-google-query-id="COrtmaqfr4QDFRUcgwMdfWoL1g" data-load-complete="true"></iframe></div></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+
+
+
+<p>All of these kinds of stuff can be achieved with Python. Python is a flexible language; it provides libraries for almost every task you have ever heard of. For Audio Processing, Python provides Pydub, which is a very simple, and well-designed module.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>Installing Pydub</strong></h2>
+
+
+
+<p>Just like all other modules in Python Pydub also can be easily installed by using a simple command – <strong>pip install pydub.</strong></p>
+
+
+
+<p class="has-primary-color has-text-color"><strong><a href="https://becominghuman.ai/10-machine-learning-projects-to-boost-your-portfolio-88d17e2825b3">Also Read: 10 Machine Learning Projects to Boost your Portfolio.</a></strong></p><div class="code-block code-block-2" style="margin: 8px auto; text-align: center; display: block; clear: both;">
+<script async="" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/f(10).txt" crossorigin="anonymous" data-checked-head="true"></script>
+<!-- new ad reps -->
+<ins class="adsbygoogle" style="display: block; height: 243px;" data-ad-client="ca-pub-6306647371633064" data-ad-slot="1883497469" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_2_host" style="border: none; height: 243px; width: 942px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_2" name="aswift_2" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 942px; height: 243px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="942" height="243" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/ads(1).html" data-google-container-id="a!3" data-google-query-id="CICrmqqfr4QDFakUgwMdxi8Ckw" data-load-complete="true"></iframe></div></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+
+
+
+<h2 class="wp-block-heading"><strong>Audio Processing: Loading and Playing</strong></h2>
+
+
+
+<p>AudioSegment is the parent class in Pydub. It plays the role of a container that can load, manipulate, and save audio files. Let’s create our first audio with python. For this, we will need a test file, which could be in any format like WAV, MP3, or anyone. In this article, I will download an audio file just like we scrape data from the web:</p>
+
+
+<pre class="wp-block-code" aria-describedby="shcb-language-1" data-shcb-language-name="Python" data-shcb-language-slug="python"><link rel="stylesheet" id="all-css-e6525f160756bf731966de730d015360" href="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/default.css" type="text/css" media="all"><style>.wp-block-code {
+	border: 0;
+	padding: 0;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+.wp-block-code > span {
+	display: block;
+	overflow: auto;
+}
+
+.shcb-language {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	-webkit-clip-path: inset(50%);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal;
+	word-break: normal;
+}
+
+.hljs {
+	box-sizing: border-box;
+}
+
+.hljs.shcb-code-table {
+	display: table;
+	width: 100%;
+}
+
+.hljs.shcb-code-table > .shcb-loc {
+	color: inherit;
+	display: table-row;
+	width: 100%;
+}
+
+.hljs.shcb-code-table .shcb-loc > span {
+	display: table-cell;
+}
+
+.wp-block-code code.hljs:not(.shcb-wrap-lines) {
+	white-space: pre;
+}
+
+.wp-block-code code.hljs.shcb-wrap-lines {
+	white-space: pre-wrap;
+}
+
+.hljs.shcb-line-numbers {
+	border-spacing: 0;
+	counter-reset: line;
+}
+
+.hljs.shcb-line-numbers > .shcb-loc {
+	counter-increment: line;
+}
+
+.hljs.shcb-line-numbers .shcb-loc > span {
+	padding-left: 0.75em;
+}
+
+.hljs.shcb-line-numbers .shcb-loc::before {
+	border-right: 1px solid #ddd;
+	content: counter(line);
+	display: table-cell;
+	padding: 0 0.75em;
+	text-align: right;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	white-space: nowrap;
+	width: 1%;
+}
+</style><span><code class="hljs language-python"><span class="token keyword">import</span> urllib<span class="token punctuation">.</span>request
+<span class="token keyword">from</span> pydub <span class="token keyword">import</span> AudioSegment
+<span class="token keyword">from</span> pydub<span class="token punctuation">.</span>playback <span class="token keyword">import</span> play
+<span class="token comment"># Download an audio file</span>
+urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlretrieve<span class="token punctuation">(</span><span class="token string">"https://tinyurl.com/wx9amev"</span><span class="token punctuation">,</span> <span class="token string">"metallic-drums.wav"</span><span class="token punctuation">)</span>
+<span class="token comment"># Load into PyDub</span>
+loop <span class="token operator">=</span> AudioSegment<span class="token punctuation">.</span>from_wav<span class="token punctuation">(</span><span class="token string">"metallic-drums.wav"</span><span class="token punctuation">)</span>
+<span class="token comment"># Play the result</span>
+play<span class="token punctuation">(</span>loop<span class="token punctuation">)</span></code></span><small class="shcb-language" id="shcb-language-1"><span class="shcb-language__label">Code language:</span> <span class="shcb-language__name">Python</span> <span class="shcb-language__paren">(</span><span class="shcb-language__slug">python</span><span class="shcb-language__paren">)</span></small></pre>
+
+
+<iframe width="100%" height="265" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/widget.html" frameborder="0"></iframe>
+
+
+
+<h2 class="wp-block-heading"><strong>Basic Audio Processing</strong></h2>
+
+
+
+<p>As we have loaded our audio, now we can perform various types of audio processing, let’s start from some necessary steps by repeating an audio file:</p>
+
+
+<pre class="wp-block-code" aria-describedby="shcb-language-2" data-shcb-language-name="Python" data-shcb-language-slug="python"><span><code class="hljs language-python"><span class="token comment"># Repeat 2 times</span>
+loop2 <span class="token operator">=</span> loop <span class="token operator">*</span> <span class="token number">2</span>
+<span class="token comment"># Get length in milliseconds</span>
+length <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>loop2<span class="token punctuation">)</span>
+<span class="token comment"># Set fade time</span>
+fade_time <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>length <span class="token operator">*</span> <span class="token number">0.5</span><span class="token punctuation">)</span>
+<span class="token comment"># Fade in and out</span>
+faded <span class="token operator">=</span> loop2<span class="token punctuation">.</span>fade_in<span class="token punctuation">(</span>fade_time<span class="token punctuation">)</span><span class="token punctuation">.</span>fade_out<span class="token punctuation">(</span>fade_time<span class="token punctuation">)</span></code></span><small class="shcb-language" id="shcb-language-2"><span class="shcb-language__label">Code language:</span> <span class="shcb-language__name">Python</span> <span class="shcb-language__paren">(</span><span class="shcb-language__slug">python</span><span class="shcb-language__paren">)</span></small></pre>
+
+
+<iframe width="100%" height="265" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/widget(1).html" frameborder="0"></iframe>
+
+
+
+<h2 class="wp-block-heading"><strong>Layering Audio</strong></h2>
+
+
+
+<p>Above we simply repeated the audio, now let’s layer and mix different audio segments with different levels of manipulation:</p><div class="code-block code-block-2" style="margin: 8px auto; text-align: center; display: block; clear: both;">
+<script async="" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/f(10).txt" crossorigin="anonymous" data-checked-head="true"></script>
+<!-- new ad reps -->
+<ins class="adsbygoogle" style="display: block; height: 243px;" data-ad-client="ca-pub-6306647371633064" data-ad-slot="1883497469" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_3_host" style="border: none; height: 243px; width: 942px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_3" name="aswift_3" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 942px; height: 243px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="942" height="243" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/ads(2).html" data-google-container-id="a!4" data-google-query-id="CNKszaufr4QDFVPLPAId9OENEQ" data-load-complete="true"></iframe></div></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+
+
+<pre class="wp-block-code" aria-describedby="shcb-language-3" data-shcb-language-name="Python" data-shcb-language-slug="python"><span><code class="hljs language-python"><span class="token comment"># Download another loop</span>
+urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlretrieve<span class="token punctuation">(</span><span class="token string">"https://tinyurl.com/yx3k5kw5"</span><span class="token punctuation">,</span> <span class="token string">"beat.wav"</span><span class="token punctuation">)</span>
+<span class="token comment"># Load into PyDub</span>
+beat <span class="token operator">=</span> AudioSegment<span class="token punctuation">.</span>from_wav<span class="token punctuation">(</span><span class="token string">"beat.wav"</span><span class="token punctuation">)</span>
+<span class="token comment"># Mix with our original loop</span>
+mixed <span class="token operator">=</span> beat<span class="token punctuation">[</span><span class="token punctuation">:</span>length<span class="token punctuation">]</span><span class="token punctuation">.</span>overlay<span class="token punctuation">(</span>loop2<span class="token punctuation">)</span></code></span><small class="shcb-language" id="shcb-language-3"><span class="shcb-language__label">Code language:</span> <span class="shcb-language__name">Python</span> <span class="shcb-language__paren">(</span><span class="shcb-language__slug">python</span><span class="shcb-language__paren">)</span></small></pre>
+
+
+<iframe loading="lazy" width="100%" height="265" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/widget(2).html" frameborder="0"></iframe>
+
+
+
+<h2 class="wp-block-heading"><strong>Audio Processing: Applying Filters</strong></h2>
+
+
+
+<p>Now, let’s move further with bringing everything together by applying filters and reversing audio effects:</p>
+
+
+<pre class="wp-block-code" aria-describedby="shcb-language-4" data-shcb-language-name="Python" data-shcb-language-slug="python"><span><code class="hljs language-python"><span class="token comment"># Filter the beat at 3kHz</span>
+filtered <span class="token operator">=</span> beat<span class="token punctuation">.</span>low_pass_filter<span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
+<span class="token comment"># Mix loop2 with a reversed, panned version</span>
+loop <span class="token operator">=</span> loop2<span class="token punctuation">.</span>reverse<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>pan<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>overlay<span class="token punctuation">(</span>loop2<span class="token punctuation">.</span>pan<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># Mix our filtered beat with the new loop at -3dB</span>
+final <span class="token operator">=</span> filtered<span class="token punctuation">.</span>overlay<span class="token punctuation">(</span>loop2 <span class="token operator">-</span> <span class="token number">3</span><span class="token punctuation">,</span> loop<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></code></span><small class="shcb-language" id="shcb-language-4"><span class="shcb-language__label">Code language:</span> <span class="shcb-language__name">Python</span> <span class="shcb-language__paren">(</span><span class="shcb-language__slug">python</span><span class="shcb-language__paren">)</span></small></pre>
+
+
+<iframe loading="lazy" width="100%" height="265" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/widget(3).html" frameborder="0"></iframe>
+
+
+
+<p>Now if you want to save your audio file, you can easily do it as below:</p>
+
+
+<pre class="wp-block-code" aria-describedby="shcb-language-5" data-shcb-language-name="Python" data-shcb-language-slug="python"><span><code class="hljs language-python">final<span class="token punctuation">.</span>export<span class="token punctuation">(</span><span class="token string">"final.mp3"</span><span class="token punctuation">,</span> <span class="token builtin">format</span><span class="token operator">=</span><span class="token string">"mp3"</span><span class="token punctuation">)</span></code></span><small class="shcb-language" id="shcb-language-5"><span class="shcb-language__label">Code language:</span> <span class="shcb-language__name">Python</span> <span class="shcb-language__paren">(</span><span class="shcb-language__slug">python</span><span class="shcb-language__paren">)</span></small></pre>
+
+
+<h2 class="wp-block-heading"><strong>Synthesizing Tunes</strong></h2>
+
+
+
+<p>Apart from all the steps of manipulating the sound we have covered above, we can also synthesize new tones. These tones can be sine, square, manipulating waves at any frequency. We can also perform white noise. In the example below, I will show the sine method to produce sine tuning for the initial 15 intervals in a harmonic way:</p>
+
+
+<pre class="wp-block-code" aria-describedby="shcb-language-6" data-shcb-language-name="Python" data-shcb-language-slug="python"><span><code class="hljs language-python"><span class="token comment"># Create an empty AudioSegment</span>
+result <span class="token operator">=</span> AudioSegment<span class="token punctuation">.</span>silent<span class="token punctuation">(</span>duration<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token comment"># Loop over 0-14</span>
+<span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Generate a sine tone with frequency 200 * n</span>
+    gen <span class="token operator">=</span> Sine<span class="token punctuation">(</span><span class="token number">200</span> <span class="token operator">*</span> n<span class="token punctuation">)</span>
+    <span class="token comment"># AudioSegment with duration 200ms, gain -3</span>
+    sine  <span class="token operator">=</span> gen<span class="token punctuation">.</span>to_audio_segment<span class="token punctuation">(</span>duration<span class="token operator">=</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">.</span>apply_gain<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">)</span>
+    <span class="token comment"># Fade in / out</span>
+    sine <span class="token operator">=</span> sine<span class="token punctuation">.</span>fade_in<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fade_out<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+    <span class="token comment"># Append the sine to our result</span>
+    result <span class="token operator">+=</span> sine
+<span class="token comment"># Play the result</span>
+play<span class="token punctuation">(</span>result<span class="token punctuation">)</span></code></span><small class="shcb-language" id="shcb-language-6"><span class="shcb-language__label">Code language:</span> <span class="shcb-language__name">Python</span> <span class="shcb-language__paren">(</span><span class="shcb-language__slug">python</span><span class="shcb-language__paren">)</span></small></pre>
+
+
+<iframe loading="lazy" width="100%" height="265" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/widget(4).html" frameborder="0"></iframe>
+
+
+
+<p class="has-primary-color has-text-color"><strong><a href="https://thecleverprogrammer.com/2020/07/22/face-landmarks-detection/">Also Read: Face Landmarks Detection with Deep Learning.</a></strong></p>
+
+
+
+<p>I hope you liked this article on Audio Processing with Python. Feel free to ask your valuable questions in the comments section below.</p><div class="code-block code-block-2" style="margin: 8px auto; text-align: center; display: block; clear: both;">
+<script async="" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/f(10).txt" crossorigin="anonymous" data-checked-head="true"></script>
+<!-- new ad reps -->
+<ins class="adsbygoogle" style="display: block; height: 243px;" data-ad-client="ca-pub-6306647371633064" data-ad-slot="1883497469" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_4_host" style="border: none; height: 243px; width: 942px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_4" name="aswift_4" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 942px; height: 243px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="942" height="243" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/ads(3).html" data-google-container-id="a!5" data-google-query-id="CNWO37Sfr4QDFW3FPAIdMEYKmg" data-load-complete="true"></iframe></div></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+
+
+
+<h4 class="wp-block-heading">Follow Us:</h4>
+
+
+<!-- AI CONTENT END 1 -->
+		</div>
+
+		
+		
+					
+		<div class="ct-share-box" data-location="bottom" data-type="type-1">
+			
+			<div data-icons-type="simple">
+							
+				<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fthecleverprogrammer.com%2F2020%2F07%2F22%2Faudio-processing-with-python%2F" data-network="facebook" aria-label="Facebook" rel="noopener noreferrer nofollow">
+					<span class="ct-icon-container">
+					<svg width="20px" height="20px" viewBox="0 0 20 20" aria-hidden="true">
+						<path d="M20,10.1c0-5.5-4.5-10-10-10S0,4.5,0,10.1c0,5,3.7,9.1,8.4,9.9v-7H5.9v-2.9h2.5V7.9C8.4,5.4,9.9,4,12.2,4c1.1,0,2.2,0.2,2.2,0.2v2.5h-1.3c-1.2,0-1.6,0.8-1.6,1.6v1.9h2.8L13.9,13h-2.3v7C16.3,19.2,20,15.1,20,10.1z"></path>
+					</svg>
+				</span>				</a>
+							
+				<a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fthecleverprogrammer.com%2F2020%2F07%2F22%2Faudio-processing-with-python%2F&amp;text=Audio%20Processing%20with%20Python" data-network="twitter" aria-label="X (Twitter)" rel="noopener noreferrer nofollow">
+					<span class="ct-icon-container">
+					<svg width="20px" height="20px" viewBox="0 0 20 20" aria-hidden="true">
+						<path d="M2.9 0C1.3 0 0 1.3 0 2.9v14.3C0 18.7 1.3 20 2.9 20h14.3c1.6 0 2.9-1.3 2.9-2.9V2.9C20 1.3 18.7 0 17.1 0H2.9zm13.2 3.8L11.5 9l5.5 7.2h-4.3l-3.3-4.4-3.8 4.4H3.4l5-5.7-5.3-6.7h4.4l3 4 3.5-4h2.1zM14.4 15 6.8 5H5.6l7.7 10h1.1z"></path>
+					</svg>
+				</span>				</a>
+											
+				<a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fthecleverprogrammer.com%2F2020%2F07%2F22%2Faudio-processing-with-python%2F&amp;title=Audio%20Processing%20with%20Python" data-network="linkedin" aria-label="LinkedIn" rel="noopener noreferrer nofollow">
+					<span class="ct-icon-container">
+					<svg width="20px" height="20px" viewBox="0 0 20 20" aria-hidden="true">
+						<path d="M18.6,0H1.4C0.6,0,0,0.6,0,1.4v17.1C0,19.4,0.6,20,1.4,20h17.1c0.8,0,1.4-0.6,1.4-1.4V1.4C20,0.6,19.4,0,18.6,0z M6,17.1h-3V7.6h3L6,17.1L6,17.1zM4.6,6.3c-1,0-1.7-0.8-1.7-1.7s0.8-1.7,1.7-1.7c0.9,0,1.7,0.8,1.7,1.7C6.3,5.5,5.5,6.3,4.6,6.3z M17.2,17.1h-3v-4.6c0-1.1,0-2.5-1.5-2.5c-1.5,0-1.8,1.2-1.8,2.5v4.7h-3V7.6h2.8v1.3h0c0.4-0.8,1.4-1.5,2.8-1.5c3,0,3.6,2,3.6,4.5V17.1z"></path>
+					</svg>
+				</span>				</a>
+																															
+				<a href="whatsapp://send?text=https%3A%2F%2Fthecleverprogrammer.com%2F2020%2F07%2F22%2Faudio-processing-with-python%2F" data-network="whatsapp" aria-label="WhatsApp" rel="noopener noreferrer nofollow">
+					<span class="ct-icon-container">
+					<svg width="20px" height="20px" viewBox="0 0 20 20" aria-hidden="true">
+						<path d="M10,0C4.5,0,0,4.5,0,10c0,1.9,0.5,3.6,1.4,5.1L0.1,20l5-1.3C6.5,19.5,8.2,20,10,20c5.5,0,10-4.5,10-10S15.5,0,10,0zM6.6,5.3c0.2,0,0.3,0,0.5,0c0.2,0,0.4,0,0.6,0.4c0.2,0.5,0.7,1.7,0.8,1.8c0.1,0.1,0.1,0.3,0,0.4C8.3,8.2,8.3,8.3,8.1,8.5C8,8.6,7.9,8.8,7.8,8.9C7.7,9,7.5,9.1,7.7,9.4c0.1,0.2,0.6,1.1,1.4,1.7c0.9,0.8,1.7,1.1,2,1.2c0.2,0.1,0.4,0.1,0.5-0.1c0.1-0.2,0.6-0.7,0.8-1c0.2-0.2,0.3-0.2,0.6-0.1c0.2,0.1,1.4,0.7,1.7,0.8s0.4,0.2,0.5,0.3c0.1,0.1,0.1,0.6-0.1,1.2c-0.2,0.6-1.2,1.1-1.7,1.2c-0.5,0-0.9,0.2-3-0.6c-2.5-1-4.1-3.6-4.2-3.7c-0.1-0.2-1-1.3-1-2.6c0-1.2,0.6-1.8,0.9-2.1C6.1,5.4,6.4,5.3,6.6,5.3z"></path>
+					</svg>
+				</span>				</a>
+											
+			</div>
+					</div>
+
+			
+		
+	<div class="author-box " data-type="type-2">
+		<a href="https://thecleverprogrammer.com/author/thecleverprogrammer/" class="ct-media-container"><img loading="lazy" decoding="async" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/f372d21ac593275230da0895419a3805(1).png" width="60" height="60" alt="Thecleverprogrammer" style="aspect-ratio: 1/1;">
+						<svg width="18px" height="13px" viewBox="0 0 20 15">
+							<polygon points="14.5,2 13.6,2.9 17.6,6.9 0,6.9 0,8.1 17.6,8.1 13.6,12.1 14.5,13 20,7.5 "></polygon>
+						</svg>
+					</a>
+		<section>
+			<h5 class="author-box-name">
+				Thecleverprogrammer			</h5>
+
+			<div class="author-box-bio">
+				
+							</div>
+
+			<div class="author-box-socials"><span><a href="http://thecleverprogrammer.com/" aria-label="Website icon" rel="noopener"><svg class="ct-icon" width="12" height="12" viewBox="0 0 20 20"><path d="M10 0C4.5 0 0 4.5 0 10s4.5 10 10 10 10-4.5 10-10S15.5 0 10 0zm6.9 6H14c-.4-1.8-1.4-3.6-1.4-3.6s2.8.8 4.3 3.6zM10 2s1.2 1.7 1.9 4H8.1C8.8 3.6 10 2 10 2zM2.2 12s-.6-1.8 0-4h3.4c-.3 1.8 0 4 0 4H2.2zm.9 2H6c.6 2.3 1.4 3.6 1.4 3.6C4.3 16.5 3.1 14 3.1 14zM6 6H3.1c1.6-2.8 4.3-3.6 4.3-3.6S6.4 4.2 6 6zm4 12s-1.3-1.9-1.9-4h3.8c-.6 2.1-1.9 4-1.9 4zm2.3-6H7.7s-.3-2 0-4h4.7c.3 1.8-.1 4-.1 4zm.3 5.6s1-1.8 1.4-3.6h2.9c-1.6 2.7-4.3 3.6-4.3 3.6zm1.7-5.6s.3-2.1 0-4h3.4c.6 2.2 0 4 0 4h-3.4z"></path></svg></a></span></div>
+			<a href="https://thecleverprogrammer.com/author/thecleverprogrammer/" class="ct-author-box-more">Articles:&nbsp;79</a>		</section>
+	</div>
+
+	
+		<nav class="post-navigation ">
+							<a href="https://thecleverprogrammer.com/2020/07/22/face-landmarks-detection/" class="nav-item-prev">
+					<figure class="ct-media-container  "><img width="300" height="169" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/un-113.png" class="attachment-medium size-medium wp-post-image" alt="Face landmarks detection with deep learning" loading="lazy" decoding="async" srcset="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-113.png?w=1280&amp;ssl=1 1280w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-113.png?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-113.png?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-113.png?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-113.png?resize=1200%2C675&amp;ssl=1 1200w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-113.png?resize=600%2C338&amp;ssl=1 600w" sizes="(max-width: 300px) 100vw, 300px" data-attachment-id="4459" data-permalink="https://thecleverprogrammer.com/2020/07/22/face-landmarks-detection/un-113/" data-orig-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-113.png?fit=1280%2C720&amp;ssl=1" data-orig-size="1280,720" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-113.png?fit=300%2C169&amp;ssl=1" data-large-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-113.png?fit=1024%2C576&amp;ssl=1" itemprop="image" style="aspect-ratio: 1/1;"><svg width="20px" height="15px" viewBox="0 0 20 15" fill="#ffffff"><polygon points="0,7.5 5.5,13 6.4,12.1 2.4,8.1 20,8.1 20,6.9 2.4,6.9 6.4,2.9 5.5,2 "></polygon></svg></figure>
+					<div class="item-content">
+						<span class="item-label">
+							Previous <span>Post</span>						</span>
+
+													<span class="item-title ct-hidden-sm">
+								Face Landmarks Detection							</span>
+											</div>
+
+				</a>
+			
+							<a href="https://thecleverprogrammer.com/2020/07/23/machine-learning-concepts-every-data-scientist-should-know/" class="nav-item-next">
+					<div class="item-content">
+						<span class="item-label">
+							Next <span>Post</span>						</span>
+
+													<span class="item-title ct-hidden-sm">
+								Machine Learning Concepts Every Data Scientist Should Know							</span>
+											</div>
+
+					<figure class="ct-media-container  "><img width="300" height="169" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/un-118.png" class="attachment-medium size-medium wp-post-image" alt="Machine Learning Concepts Every Data Scientist Should Know" loading="lazy" decoding="async" srcset="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-118.png?w=1280&amp;ssl=1 1280w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-118.png?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-118.png?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-118.png?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-118.png?resize=1200%2C675&amp;ssl=1 1200w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-118.png?resize=600%2C338&amp;ssl=1 600w" sizes="(max-width: 300px) 100vw, 300px" data-attachment-id="4520" data-permalink="https://thecleverprogrammer.com/2020/07/23/machine-learning-concepts-every-data-scientist-should-know/un-121/" data-orig-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-118.png?fit=1280%2C720&amp;ssl=1" data-orig-size="1280,720" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-118.png?fit=300%2C169&amp;ssl=1" data-large-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2020/07/un-118.png?fit=1024%2C576&amp;ssl=1" itemprop="image" style="aspect-ratio: 1/1;"><svg width="20px" height="15px" viewBox="0 0 20 15" fill="#ffffff"><polygon points="14.5,2 13.6,2.9 17.6,6.9 0,6.9 0,8.1 17.6,8.1 13.6,12.1 14.5,13 20,7.5 "></polygon></svg></figure>				</a>
+			
+		</nav>
+
+	
+	</article>
+
+	
+		
+	<aside class="ct-hidden-sm ct-hidden-md" data-type="type-4" id="sidebar" itemtype="https://schema.org/WPSideBar" itemscope="itemscope" style="height: auto !important;">
+
+		
+		<div class="ct-sidebar" data-sticky="sidebar">
+			
+			<div class="ct-widget block-widget" id="ai_widget-7"><div class="code-block code-block-2" style="margin: 8px auto; text-align: center; display: block; clear: both;">
+<script async="" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/f(10).txt" crossorigin="anonymous" data-checked-head="true"></script>
+<!-- new ad reps -->
+<ins class="adsbygoogle" style="display: block; height: 600px;" data-ad-client="ca-pub-6306647371633064" data-ad-slot="1883497469" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_5_host" style="border: none; height: 600px; width: 275px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: visible;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_5" name="aswift_5" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:275px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="275" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/ads(4).html" data-google-container-id="a!6" data-google-query-id="CKiUmqqfr4QDFfeGSwUd3H0GjA" data-load-complete="true"></iframe></div></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+</div>
+					</div>
+
+			</aside>
+
+	
+			</div>
+
+
+		<div class="ct-related-posts-container">
+		<div class="ct-container">
+	
+		<div class="ct-related-posts">
+			
+											<h3 class="ct-module-title">
+					Recommended For You				</h3>
+							
+			
+			<div class="ct-related-posts-items" data-layout="grid">
+							
+				<article itemscope="itemscope" itemtype="https://schema.org/CreativeWork">
+					<a class="ct-media-container" href="https://thecleverprogrammer.com/2024/01/03/how-much-python-is-required-to-learn-data-science/" aria-label="How Much Python is Required to Learn Data Science?" tabindex="-1"><img width="300" height="169" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/How-Much-Python-is-Required-to-learn-Data-Science.png" class="attachment-medium size-medium wp-post-image" alt="How Much Python is Required to Learn Data Science" loading="lazy" decoding="async" srcset="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2024/01/How-Much-Python-is-Required-to-learn-Data-Science.png?w=2240&amp;ssl=1 2240w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2024/01/How-Much-Python-is-Required-to-learn-Data-Science.png?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2024/01/How-Much-Python-is-Required-to-learn-Data-Science.png?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2024/01/How-Much-Python-is-Required-to-learn-Data-Science.png?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2024/01/How-Much-Python-is-Required-to-learn-Data-Science.png?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2024/01/How-Much-Python-is-Required-to-learn-Data-Science.png?resize=2048%2C1152&amp;ssl=1 2048w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2024/01/How-Much-Python-is-Required-to-learn-Data-Science.png?resize=1200%2C675&amp;ssl=1 1200w" sizes="(max-width: 300px) 100vw, 300px" data-attachment-id="22210" data-permalink="https://thecleverprogrammer.com/2024/01/03/how-much-python-is-required-to-learn-data-science/how-much-python-is-required-to-learn-data-science/" data-orig-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2024/01/How-Much-Python-is-Required-to-learn-Data-Science.png?fit=2240%2C1260&amp;ssl=1" data-orig-size="2240,1260" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="How Much Python is Required to learn Data Science" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2024/01/How-Much-Python-is-Required-to-learn-Data-Science.png?fit=300%2C169&amp;ssl=1" data-large-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2024/01/How-Much-Python-is-Required-to-learn-Data-Science.png?fit=1024%2C576&amp;ssl=1" itemprop="image" style="aspect-ratio: 16/9;"></a>
+											<h4 class="related-entry-title" itemprop="name">
+							<a href="https://thecleverprogrammer.com/2024/01/03/how-much-python-is-required-to-learn-data-science/" itemprop="url" rel="bookmark">How Much Python is Required to Learn Data Science?</a>
+						</h4>
+					
+					<ul class="entry-meta" data-type="simple:slash"><li class="meta-date" itemprop="datePublished"><time class="ct-meta-element-date" datetime="2024-01-03T11:52:05+05:30">January 3, 2024</time></li><li class="meta-comments"><a href="https://thecleverprogrammer.com/2024/01/03/how-much-python-is-required-to-learn-data-science/#comments">1 Comment</a></li></ul>				</article>
+							
+				<article itemscope="itemscope" itemtype="https://schema.org/CreativeWork">
+					<a class="ct-media-container" href="https://thecleverprogrammer.com/2023/08/22/how-to-choose-python-tableau-or-power-bi-for-data-analysis/" aria-label="How to Choose Python Tableau or Power BI for Data Analysis" tabindex="-1"><img width="300" height="169" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/Choosing-Python-Tableau-or-Power-BI-for-Data-Analysis.png" class="attachment-medium size-medium wp-post-image" alt="How to Choose Python Tableau or Power BI for Data Analysis" loading="lazy" decoding="async" srcset="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/08/Choosing-Python-Tableau-or-Power-BI-for-Data-Analysis.png?w=2240&amp;ssl=1 2240w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/08/Choosing-Python-Tableau-or-Power-BI-for-Data-Analysis.png?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/08/Choosing-Python-Tableau-or-Power-BI-for-Data-Analysis.png?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/08/Choosing-Python-Tableau-or-Power-BI-for-Data-Analysis.png?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/08/Choosing-Python-Tableau-or-Power-BI-for-Data-Analysis.png?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/08/Choosing-Python-Tableau-or-Power-BI-for-Data-Analysis.png?resize=2048%2C1152&amp;ssl=1 2048w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/08/Choosing-Python-Tableau-or-Power-BI-for-Data-Analysis.png?resize=1200%2C675&amp;ssl=1 1200w" sizes="(max-width: 300px) 100vw, 300px" data-attachment-id="21192" data-permalink="https://thecleverprogrammer.com/2023/08/22/how-to-choose-python-tableau-or-power-bi-for-data-analysis/choosing-python-tableau-or-power-bi-for-data-analysis/" data-orig-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/08/Choosing-Python-Tableau-or-Power-BI-for-Data-Analysis.png?fit=2240%2C1260&amp;ssl=1" data-orig-size="2240,1260" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Choosing Python, Tableau, or Power BI for Data Analysis" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/08/Choosing-Python-Tableau-or-Power-BI-for-Data-Analysis.png?fit=300%2C169&amp;ssl=1" data-large-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/08/Choosing-Python-Tableau-or-Power-BI-for-Data-Analysis.png?fit=1024%2C576&amp;ssl=1" itemprop="image" style="aspect-ratio: 16/9;"></a>
+											<h4 class="related-entry-title" itemprop="name">
+							<a href="https://thecleverprogrammer.com/2023/08/22/how-to-choose-python-tableau-or-power-bi-for-data-analysis/" itemprop="url" rel="bookmark">How to Choose Python Tableau or Power BI for Data Analysis</a>
+						</h4>
+					
+					<ul class="entry-meta" data-type="simple:slash"><li class="meta-date" itemprop="datePublished"><time class="ct-meta-element-date" datetime="2023-08-22T13:20:47+05:30">August 22, 2023</time></li></ul>				</article>
+							
+				<article itemscope="itemscope" itemtype="https://schema.org/CreativeWork">
+					<a class="ct-media-container" href="https://thecleverprogrammer.com/2023/07/26/detect-and-remove-outliers-using-python/" aria-label="Detect and Remove Outliers using Python" tabindex="-1"><img width="300" height="169" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/Learn-How-to-Detect-and-Remove-Outliers-using-Python.png" class="attachment-medium size-medium wp-post-image" alt="Detect and Remove Outliers using Python" loading="lazy" decoding="async" srcset="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Learn-How-to-Detect-and-Remove-Outliers-using-Python.png?w=2240&amp;ssl=1 2240w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Learn-How-to-Detect-and-Remove-Outliers-using-Python.png?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Learn-How-to-Detect-and-Remove-Outliers-using-Python.png?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Learn-How-to-Detect-and-Remove-Outliers-using-Python.png?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Learn-How-to-Detect-and-Remove-Outliers-using-Python.png?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Learn-How-to-Detect-and-Remove-Outliers-using-Python.png?resize=2048%2C1152&amp;ssl=1 2048w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Learn-How-to-Detect-and-Remove-Outliers-using-Python.png?resize=1200%2C675&amp;ssl=1 1200w" sizes="(max-width: 300px) 100vw, 300px" data-attachment-id="20993" data-permalink="https://thecleverprogrammer.com/2023/07/26/detect-and-remove-outliers-using-python/learn-how-to-detect-and-remove-outliers-using-python/" data-orig-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Learn-How-to-Detect-and-Remove-Outliers-using-Python.png?fit=2240%2C1260&amp;ssl=1" data-orig-size="2240,1260" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Learn How to Detect and Remove Outliers using Python" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Learn-How-to-Detect-and-Remove-Outliers-using-Python.png?fit=300%2C169&amp;ssl=1" data-large-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Learn-How-to-Detect-and-Remove-Outliers-using-Python.png?fit=1024%2C576&amp;ssl=1" itemprop="image" style="aspect-ratio: 16/9;"></a>
+											<h4 class="related-entry-title" itemprop="name">
+							<a href="https://thecleverprogrammer.com/2023/07/26/detect-and-remove-outliers-using-python/" itemprop="url" rel="bookmark">Detect and Remove Outliers using Python</a>
+						</h4>
+					
+					<ul class="entry-meta" data-type="simple:slash"><li class="meta-date" itemprop="datePublished"><time class="ct-meta-element-date" datetime="2023-07-26T13:27:17+05:30">July 26, 2023</time></li><li class="meta-comments"><a href="https://thecleverprogrammer.com/2023/07/26/detect-and-remove-outliers-using-python/#comments">3 Comments</a></li></ul>				</article>
+							
+				<article itemscope="itemscope" itemtype="https://schema.org/CreativeWork">
+					<a class="ct-media-container" href="https://thecleverprogrammer.com/2023/07/13/python-and-r-libraries-for-data-science/" aria-label="Python and R Libraries for Data Science" tabindex="-1"><img width="300" height="169" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/Python-and-R-Libraries-for-Data-Science-2.png" class="attachment-medium size-medium wp-post-image" alt="Python and R Libraries for Data Science" loading="lazy" decoding="async" srcset="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Python-and-R-Libraries-for-Data-Science-2.png?w=1920&amp;ssl=1 1920w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Python-and-R-Libraries-for-Data-Science-2.png?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Python-and-R-Libraries-for-Data-Science-2.png?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Python-and-R-Libraries-for-Data-Science-2.png?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Python-and-R-Libraries-for-Data-Science-2.png?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Python-and-R-Libraries-for-Data-Science-2.png?resize=1200%2C675&amp;ssl=1 1200w" sizes="(max-width: 300px) 100vw, 300px" data-attachment-id="20854" data-permalink="https://thecleverprogrammer.com/2023/07/13/python-and-r-libraries-for-data-science/python-and-r-libraries-for-data-science-2/" data-orig-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Python-and-R-Libraries-for-Data-Science-2.png?fit=1920%2C1080&amp;ssl=1" data-orig-size="1920,1080" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Python and R Libraries for Data Science-2" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Python-and-R-Libraries-for-Data-Science-2.png?fit=300%2C169&amp;ssl=1" data-large-file="https://i0.wp.com/thecleverprogrammer.com/wp-content/uploads/2023/07/Python-and-R-Libraries-for-Data-Science-2.png?fit=1024%2C576&amp;ssl=1" itemprop="image" style="aspect-ratio: 16/9;"></a>
+											<h4 class="related-entry-title" itemprop="name">
+							<a href="https://thecleverprogrammer.com/2023/07/13/python-and-r-libraries-for-data-science/" itemprop="url" rel="bookmark">Python and R Libraries for Data Science</a>
+						</h4>
+					
+					<ul class="entry-meta" data-type="simple:slash"><li class="meta-date" itemprop="datePublished"><time class="ct-meta-element-date" datetime="2023-07-13T14:38:30+05:30">July 13, 2023</time></li></ul>				</article>
+						</div>
+
+			
+					</div>
+
+			</div>
+	</div>
+	
+	<div class="ct-comments-container"><div class="ct-container-narrow">
+
+<div class="ct-comments" id="comments">
+	
+	
+	
+	
+	
+		<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply<small><a rel="nofollow" id="cancel-comment-reply-link" href="https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/#respond" style="display:none;">Cancel reply</a></small></h3>			<form id="commentform" class="comment-form">
+				<iframe title="Comment Form" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/saved_resource(11).html" name="jetpack_remote_comment" style="width: 100%; height: 2px; border: 0px;" class="jetpack_remote_comment" id="jetpack_remote_comment" sandbox="allow-same-origin allow-top-navigation allow-scripts allow-forms allow-popups" scrolling="no">
+									</iframe>
+									<!--[if !IE]><!-->
+					<script>
+						document.addEventListener('DOMContentLoaded', function () {
+							var commentForms = document.getElementsByClassName('jetpack_remote_comment');
+							for (var i = 0; i < commentForms.length; i++) {
+								commentForms[i].allowTransparency = false;
+								commentForms[i].scrolling = 'no';
+							}
+						});
+					</script>
+					<!--<![endif]-->
+							</form>
+		</div>
+
+		
+		<input type="hidden" name="comment_parent" id="comment_parent" value="">
+
+		
+	
+</div>
+
+</div></div>	</main>
+
+	<footer id="footer" class="ct-footer" data-id="type-1" itemscope="" itemtype="https://schema.org/WPFooter"><div data-row="top"><div class="ct-container"><div data-column="socials">
+<div class="ct-footer-socials" data-id="socials">
+
+	
+		<div class="ct-social-box" data-color="custom" data-icon-size="custom" data-icons-type="simple">
+			
+			
+							
+				<a href="https://www.facebook.com/amankharwalofficial/" data-network="facebook" aria-label="Facebook" rel="noopener">
+					<span class="ct-icon-container">
+					<svg width="20px" height="20px" viewBox="0 0 20 20" aria-hidden="true">
+						<path d="M20,10.1c0-5.5-4.5-10-10-10S0,4.5,0,10.1c0,5,3.7,9.1,8.4,9.9v-7H5.9v-2.9h2.5V7.9C8.4,5.4,9.9,4,12.2,4c1.1,0,2.2,0.2,2.2,0.2v2.5h-1.3c-1.2,0-1.6,0.8-1.6,1.6v1.9h2.8L13.9,13h-2.3v7C16.3,19.2,20,15.1,20,10.1z"></path>
+					</svg>
+				</span><span class="ct-label ">Facebook</span>				</a>
+							
+				<a href="https://www.instagram.com/amankharwal.official/" data-network="instagram" aria-label="Instagram" rel="noopener">
+					<span class="ct-icon-container">
+					<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+						<circle cx="10" cy="10" r="3.3"></circle>
+						<path d="M14.2,0H5.8C2.6,0,0,2.6,0,5.8v8.3C0,17.4,2.6,20,5.8,20h8.3c3.2,0,5.8-2.6,5.8-5.8V5.8C20,2.6,17.4,0,14.2,0zM10,15c-2.8,0-5-2.2-5-5s2.2-5,5-5s5,2.2,5,5S12.8,15,10,15z M15.8,5C15.4,5,15,4.6,15,4.2s0.4-0.8,0.8-0.8s0.8,0.4,0.8,0.8S16.3,5,15.8,5z"></path>
+					</svg>
+				</span><span class="ct-label ">Instagram</span>				</a>
+							
+				<a href="https://medium.com/@amankharwal" data-network="medium" aria-label="Medium" rel="noopener">
+					<span class="ct-icon-container">
+					<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+						<path d="M2.4,5.3c0-0.2-0.1-0.5-0.3-0.7L0.3,2.4V2.1H6l4.5,9.8l3.9-9.8H20v0.3l-1.6,1.5c-0.1,0.1-0.2,0.3-0.2,0.4v11.2c0,0.2,0,0.3,0.2,0.4l1.6,1.5v0.3h-7.8v-0.3l1.6-1.6c0.2-0.2,0.2-0.2,0.2-0.4V6.5L9.4,17.9H8.8L3.6,6.5v7.6c0,0.3,0.1,0.6,0.3,0.9L6,17.6v0.3H0v-0.3L2.1,15c0.2-0.2,0.3-0.6,0.3-0.9V5.3z"></path>
+					</svg>
+				</span><span class="ct-label ">Medium</span>				</a>
+							
+				<a href="https://www.linkedin.com/company/thecleverprogrammer/" data-network="linkedin" aria-label="LinkedIn" rel="noopener">
+					<span class="ct-icon-container">
+					<svg width="20px" height="20px" viewBox="0 0 20 20" aria-hidden="true">
+						<path d="M18.6,0H1.4C0.6,0,0,0.6,0,1.4v17.1C0,19.4,0.6,20,1.4,20h17.1c0.8,0,1.4-0.6,1.4-1.4V1.4C20,0.6,19.4,0,18.6,0z M6,17.1h-3V7.6h3L6,17.1L6,17.1zM4.6,6.3c-1,0-1.7-0.8-1.7-1.7s0.8-1.7,1.7-1.7c0.9,0,1.7,0.8,1.7,1.7C6.3,5.5,5.5,6.3,4.6,6.3z M17.2,17.1h-3v-4.6c0-1.1,0-2.5-1.5-2.5c-1.5,0-1.8,1.2-1.8,2.5v4.7h-3V7.6h2.8v1.3h0c0.4-0.8,1.4-1.5,2.8-1.5c3,0,3.6,2,3.6,4.5V17.1z"></path>
+					</svg>
+				</span><span class="ct-label ">LinkedIn</span>				</a>
+			
+			
+					</div>
+
+	</div>
+
+</div><div data-column="ghost"></div></div></div><div data-row="bottom"><div class="ct-container" data-columns-divider="md:sm"><div data-column="copyright">
+<div class="ct-footer-copyright" data-id="copyright">
+
+	<p>Copyright © Thecleverprogrammer.com 2024&nbsp;</p></div>
+</div></div></div></footer></div><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;" tabindex="0" title="Advertisement" aria-label="Advertisement"><iframe id="aswift_0" name="aswift_0" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/ads(5).html" data-google-container-id="a!1" data-load-complete="true"></iframe></div></ins><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"></ins>
+
+<!--  -->
+<style>
+			.sd-social-icon .sd-content ul li a.sd-button>span {
+				margin-left: 0;
+			}
+		</style><script defer="" id="bilmur" data-provider="wordpress.com" data-service="atomic" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/bilmur.min.js.download"></script>
+					<div class="jetpack-subscription-modal">
+						<div class="jetpack-subscription-modal__modal-content">
+								
+	<div class="wp-block-group has-border-color jetpack-subscription-modal__modal-content-form is-layout-flow wp-block-group-is-layout-flow" style="border-color:#dddddd;border-width:1px;margin-top:0;margin-bottom:0;padding:32px">
+
+		
+		<h2 class="wp-block-heading has-text-align-center" style="margin-top:4px;margin-bottom:10px;font-size:clamp(16.834px, 1.052rem + ((1vw - 3.2px) * 0.716), 26px);font-style:normal;font-weight:600">Discover more from thecleverprogrammer</h2>
+		
+
+		
+		<p class="has-text-align-center" style="margin-top:4px;margin-bottom:0px;font-size:clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.078), 15px);">Subscribe now to keep reading and get access to the full archive.</p>
+		
+
+			<div class="wp-block-jetpack-subscriptions__supports-newline is-style-compact wp-block-jetpack-subscriptions">
+		<div class="wp-block-jetpack-subscriptions__container is-not-subscriber">
+			<form action="https://wordpress.com/email-subscriptions" method="post" accept-charset="utf-8" data-blog="175928511" data-post_access_level="everybody" data-subscriber_email="" id="subscribe-blog">
+				<div class="wp-block-jetpack-subscriptions__form-elements">
+										<p id="subscribe-email">
+						<label id="subscribe-field-label" for="subscribe-field" class="screen-reader-text">
+							Type your email…						</label>
+						<input required="required" type="email" name="email" style="font-size: 16px;padding: 15px 23px 15px 23px;border-radius: 50px;border-width: 1px;" placeholder="Type your email…" value="" id="subscribe-field">					</p>
+										<p id="subscribe-submit">
+						<input type="hidden" name="action" value="subscribe">
+						<input type="hidden" name="blog_id" value="175928511">
+						<input type="hidden" name="source" value="https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/">
+						<input type="hidden" name="sub-type" value="subscribe-block">
+						<input type="hidden" name="app_source" value="atomic-subscription-modal-lo">
+						<input type="hidden" name="redirect_fragment" value="subscribe-blog">
+						<input type="hidden" name="lang" value="en_US">
+						<input type="hidden" id="_wpnonce" name="_wpnonce" value="afa8c54c80"><input type="hidden" name="_wp_http_referer" value="/2020/07/22/audio-processing-with-python/"><input type="hidden" name="post_id" value="4070">						<button type="submit" class="wp-block-button__link" style="font-size: 16px;padding: 15px 23px 15px 23px;margin: 0px; margin-left: 10px;border-radius: 50px;border-width: 1px;" name="jetpack_subscriptions_widget">
+							Subscribe						</button>
+					</p>
+				</div>
+			</form>
+					</div>
+	</div>
+	
+
+		
+		<p class="has-text-align-center jetpack-subscription-modal__close" style="margin-top:20px;font-size:14px"><a href="https://thecleverprogrammer.com/2020/07/22/audio-processing-with-python/#">Continue reading</a></p>
+		
+	</div>
+							</div>
+					</div>
+			<link rel="stylesheet" id="all-css-93c718968e158f5a48873c7122a61be9" href="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/view.css" type="text/css" media="all">
+<script id="mkaz-code-syntax-prism-js-js-extra">
+var prism_settings = {"pluginUrl":"https:\/\/thecleverprogrammer.com\/wp-content\/plugins\/code-syntax-block\/"};
+</script>
+<script id="ct-scripts-js-extra">
+var ct_localizations = {"ajax_url":"https:\/\/thecleverprogrammer.com\/wp-admin\/admin-ajax.php","public_url":"https:\/\/thecleverprogrammer.com\/wp-content\/themes\/blocksy\/static\/bundle\/","rest_url":"https:\/\/thecleverprogrammer.com\/wp-json\/","search_url":"https:\/\/thecleverprogrammer.com\/search\/QUERY_STRING\/","show_more_text":"Show more","more_text":"More","search_live_results":"Search results","search_live_no_result":"No results","search_live_one_result":"You got %s result. Please press Tab to select it.","search_live_many_results":"You got %s results. Please press Tab to select one.","expand_submenu":"Expand dropdown menu","collapse_submenu":"Collapse dropdown menu","dynamic_js_chunks":[],"dynamic_styles":{"lazy_load":"https:\/\/thecleverprogrammer.com\/wp-content\/themes\/blocksy\/static\/bundle\/non-critical-styles.min.css?ver=2.0.24","search_lazy":"https:\/\/thecleverprogrammer.com\/wp-content\/themes\/blocksy\/static\/bundle\/non-critical-search-styles.min.css?ver=2.0.24","back_to_top":"https:\/\/thecleverprogrammer.com\/wp-content\/themes\/blocksy\/static\/bundle\/back-to-top.min.css?ver=2.0.24"},"dynamic_styles_selectors":[{"selector":".ct-header-cart, #woo-cart-panel","url":"https:\/\/thecleverprogrammer.com\/wp-content\/themes\/blocksy\/static\/bundle\/cart-header-element-lazy.min.css?ver=2.0.24"},{"selector":".flexy","url":"https:\/\/thecleverprogrammer.com\/wp-content\/themes\/blocksy\/static\/bundle\/flexy.min.css?ver=2.0.24"}]};
+</script>
+<script type="text/javascript" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/saved_resource(5)"></script>
+<script src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/e-202407.js.download" id="jetpack-stats-js" data-wp-strategy="defer"></script>
+<script id="jetpack-stats-js-after">
+_stq = window._stq || [];
+_stq.push([ "view", JSON.parse("{\"v\":\"ext\",\"blog\":\"175928511\",\"post\":\"4070\",\"tz\":\"5.5\",\"srv\":\"thecleverprogrammer.com\",\"hp\":\"atomic\",\"ac\":\"2\",\"amp\":\"0\",\"j\":\"1:13.2-a.5\"}") ]);
+_stq.push([ "clickTrackerInit", "175928511", "4070" ]);
+</script><img src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/g.gif" alt="" width="6" height="5" id="wpstats">
+<script defer="" type="text/javascript" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/akismet-frontend.js.download"></script>
+<script id="jetpack-blocks-assets-base-url-js-before">
+var Jetpack_Block_Assets_Base_Url="https://thecleverprogrammer.com/wp-content/plugins/jetpack/_inc/blocks/";
+</script>
+<script type="text/javascript" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/view.js.download"></script>
+		<script type="text/javascript">
+			const iframe = document.getElementById( 'jetpack_remote_comment' );
+						const watchReply = function() {
+				// Check addComment._Jetpack_moveForm to make sure we don't monkey-patch twice.
+				if ( 'undefined' !== typeof addComment && ! addComment._Jetpack_moveForm ) {
+					// Cache the Core function.
+					addComment._Jetpack_moveForm = addComment.moveForm;
+					const commentParent = document.getElementById( 'comment_parent' );
+					const cancel = document.getElementById( 'cancel-comment-reply-link' );
+
+					function tellFrameNewParent ( commentParentValue ) {
+						const url = new URL( iframe.src );
+						if ( commentParentValue ) {
+							url.searchParams.set( 'replytocom', commentParentValue )
+						} else {
+							url.searchParams.delete( 'replytocom' );
+						}
+						if( iframe.src !== url.href ) {
+							iframe.src = url.href;
+						}
+					};
+
+					cancel.addEventListener( 'click', function () {
+						tellFrameNewParent( false );
+					} );
+
+					addComment.moveForm = function ( _, parentId ) {
+						tellFrameNewParent( parentId );
+						return addComment._Jetpack_moveForm.apply( null, arguments );
+					};
+				}
+			}
+			document.addEventListener( 'DOMContentLoaded', watchReply );
+			// In WP 6.4+, the script is loaded asynchronously, so we need to wait for it to load before we monkey-patch the functions it introduces.
+			document.querySelector('#comment-reply-js')?.addEventListener( 'load', watchReply );
+
+			
+			window.addEventListener( 'message', function ( event ) {
+				if ( event.origin !== 'https://jetpack.wordpress.com' ) {
+					return;
+				}
+				iframe.style.height = event.data + 'px';
+			});
+		</script>
+		
+
+
+<link rel="stylesheet" href="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/non-critical-styles.min.css"><iframe name="googlefcPresent" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/saved_resource(12).html"></iframe><iframe name="__tcfapiLocator" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/saved_resource(13).html" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcInactive" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/saved_resource(14).html" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcLoaded" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/saved_resource(15).html" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/aframe.html" width="0" height="0" style="display: none;"></iframe><link rel="stylesheet" href="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/back-to-top.min.css"></body><iframe id="google_esf" name="google_esf" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/zrt_lookup_fy2021.html" style="display: none;"></iframe><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; clear: none !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: fixed !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647 !important; background: transparent !important;" aria-hidden="true" data-ad-status="filled" data-vignette-loaded="true" tabindex="0"><div id="aswift_6_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_6" name="aswift_6" browsingtopics="true" style="width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; position: absolute !important; clear: none !important; display: inline !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; vertical-align: baseline !important; visibility: visible !important; z-index: auto !important;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="" height="" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="./Audio Processing with Python _ Thecleverprogrammer-Basic_files/zrt_lookup_fy2021(1).html" data-google-container-id="a!7" data-google-query-id="COromaqfr4QDFQkbgwMdEx0LJw" data-load-complete="true"></iframe></div></ins></html>
